@@ -18,7 +18,7 @@ const StyledNavLink = styled(NavLink)`
     text-decoration: none;
     color: #3C3C3C;
     padding: 9px 20px;
-    font-size: 18px;
+    font-size:  18px;
     
     ${({ secondary }) => {
         return (
@@ -27,12 +27,16 @@ const StyledNavLink = styled(NavLink)`
             margin-left: 10px;
             padding: 9px 10px;
             font-size: 13px;
-            
-            
             `
         )
     }}
 `;
+
+const StyledScrollLink = styled(Link).attrs({
+    scroll: "smooth",
+})`
+
+`
 
 const StyledHeaderTop = styled.div`
     text-align: right;
@@ -48,12 +52,12 @@ const Header = () => {
         <>
             <StyledHeader>
                 <StyledHeaderTop>
-                    <StyledNavLink secondary to='/'>Zaloguj</StyledNavLink>
-                    <StyledNavLink secondary to='/'>Załóż konto</StyledNavLink>
+                    <StyledNavLink secondary='true' to='/'>Zaloguj</StyledNavLink>
+                    <StyledNavLink secondary='true' to='/'>Załóż konto</StyledNavLink>
                 </StyledHeaderTop>
                 <StyledHeaderBottom>
                     <StyledNavLink exact to='/'>Start</StyledNavLink>
-                    <Link to='section'>O co chodzi?</Link>
+                    <StyledScrollLink to='section'>O co chodzi?</StyledScrollLink>
                     <StyledNavLink to='/'>O nas</StyledNavLink>
                     <StyledNavLink to='/'>Fundacja i organizacje</StyledNavLink>
                     <StyledNavLink to='/'>Kontakt</StyledNavLink>
