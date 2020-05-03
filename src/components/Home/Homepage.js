@@ -2,7 +2,7 @@ import React from 'react';
 import { Element } from 'react-scroll';
 import Welcome from '../Welcome/Welcome';
 import Statistic from '../Statistic/Statistic';
-
+import Steps from '../Steps/Steps';
 
 
 const Homepage = () => {
@@ -10,6 +10,7 @@ const Homepage = () => {
         <>
             <Welcome />
             <Statistic />
+            <Steps />
             <Element style={{ marginTop: "1500px" }} id="section" >
                 Section
             </Element>

@@ -64,7 +64,6 @@ const Welcome = () => {
                     <StyledWelcomeTitle>
                         Zacznij pomagać!<br /> Oddaj niechciane rzeczy w zaufane ręce
                     </StyledWelcomeTitle>
-                    {/* <img src={decoration} /> */}
                     <StyledButtonsWrapper>
                         <Button texttransform="uppercase">
                             Oddaj rzeczy
