@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Button from '../Button';
 import IconsCards from './IconsCards';
-import decoration from '../../assets/Decoration.svg';
+import Decoration from '../Decoration';
 
 const StyledSteps = styled.div`
     width: 100%;
@@ -27,7 +27,7 @@ const Steps = () => {
             <StyledTitle>
                 Wystarczą 4 proste kroki
             </StyledTitle>
-            <img src={decoration} alt="decoration" />
+            <Decoration />
             <IconsCards />
             <Button texttransform="uppercase">
                 Oddaj rzeczy
