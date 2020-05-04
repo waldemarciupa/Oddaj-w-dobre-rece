@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import background from '../../assets/Background-Contact-Form.jpg'
 import Decoration from '../Decoration';
+import Button from '../Button';
 
 const StyledContact = styled.div`
     margin-top: 30px;
@@ -16,7 +17,6 @@ const StyledContact = styled.div`
 const StyledFormWrapper = styled.div`
     width: 50vw;
     height: 100%;
-    border: 1px solid black;
     position: absolute;
     top: 0;
     right: 0;
@@ -28,10 +28,9 @@ const StyledFormWrapper = styled.div`
 const StyledFormContent = styled.div`
     width: 80%;
     height: 60%;
-    border: 1px solid red;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
 `;
 
@@ -42,16 +41,61 @@ const StyledTitle = styled.div`
     font-weight: 400;
 `;
 
-const StyledForm = styled.form``;
+const StyledForm = styled.form`
+    position: relative;
+`;
 
 const StyledFormTopInputs = styled.div`
     display: flex;
     justify-content: space-between;
 `;
 
-const StyledFormName = styled.div``;
+const StyledFormName = styled.div`
+    padding-right: 7px;
+`;
 
-const StyledFormEmail = styled.div``;
+const StyledFormEmail = styled.div`
+    padding-left: 7px;
+`;
+
+const StyledLabel = styled.label`
+    font-size: 16px;
+    line-height: 55px;
+    font-weight: 600;
+`;
+
+const StyledTextarea = styled.textarea`
+    width: 100%;
+    resize: none;
+    border: none;
+    border-bottom: 1px solid #707070;
+    background: transparent;
+    color: #272727;
+    font-family: ${({ theme }) => theme.OpenSans};
+    font-size: 16px;
+    margin-bottom: 60px;
+`;
+
+const StyledInput = styled.input`
+    border: none;
+    border-bottom: 1px solid #707070;
+    background: transparent;
+    font-size: 16px;
+    color: #272727;
+    font-family: ${({ theme }) => theme.OpenSans};
+`;
+
+const StyledButton = styled(Button)`
+    width: 150px;
+    height: 50px;
+    font-family: ${({ theme }) => theme.OpenSans};
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 32px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+`;
 
 
 const Contact = () => {
@@ -60,23 +104,26 @@ const Contact = () => {
             <StyledFormWrapper>
                 <StyledFormContent>
                     <StyledTitle>
-                        Wystarczą 4 proste kroki
+                        Skontaktuj się z nami
                     </StyledTitle>
                     <Decoration />
                     <StyledForm>
                         <StyledFormTopInputs>
                             <StyledFormName>
-                                <label>Wpisz swoje imię</label><br />
-                                <input />
+                                <StyledLabel>Wpisz swoje imię</StyledLabel><br />
+                                <StyledInput />
                             </StyledFormName>
+
                             <StyledFormEmail>
-                                <label>Wpisz swój email</label><br />
-                                <input />
+                                <StyledLabel>Wpisz swój email</StyledLabel><br />
+                                <StyledInput />
                             </StyledFormEmail>
                         </StyledFormTopInputs>
-                        <label>Wpisz swoją wiadomość</label><br />
-                        <textarea />
-                        <button>Wyślij</button>
+                        <StyledLabel>Wpisz swoją wiadomość</StyledLabel><br />
+                        <StyledTextarea rows="5" />
+                        <StyledButton>
+                            Wyślij
+                        </StyledButton>
                     </StyledForm>
                 </StyledFormContent>
             </StyledFormWrapper>
