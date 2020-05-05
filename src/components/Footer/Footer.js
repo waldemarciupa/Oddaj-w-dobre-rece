@@ -30,7 +30,7 @@ const StyledLink = styled.a`
 `;
 
 const StyledLinkIcon = styled.img`
-    src: ${facebook};
+    
 `;
 
 
@@ -42,10 +42,10 @@ const Footer = () => {
             </StyledParagraph>
             <StyledLinksWrapper>
                 <StyledLink href="#">
-                    <img src={facebook} />
+                    <StyledLinkIcon src={facebook} alt="facebook" />
                 </StyledLink>
                 <StyledLink href="#">
-                    <img src={instagram} />
+                    <StyledLinkIcon src={instagram} alt="instagram" />
                 </StyledLink>
             </StyledLinksWrapper>
         </StyledFooter>

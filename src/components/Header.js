@@ -34,8 +34,24 @@ const StyledNavLink = styled(NavLink)`
 
 const StyledScrollLink = styled(Link).attrs({
     scroll: "smooth",
-})`
 
+})`
+    text-decoration: none;
+    color: #3C3C3C;
+    padding: 9px 20px;
+    font-size:  18px;
+    cursor: pointer;
+    
+    ${({ secondary }) => {
+        return (
+            secondary && css`
+            color: #737373;
+            margin-left: 10px;
+            padding: 9px 10px;
+            font-size: 13px;
+            `
+        )
+    }}
 `
 
 const StyledHeaderTop = styled.div`
@@ -52,15 +68,15 @@ const Header = () => {
         <>
             <StyledHeader>
                 <StyledHeaderTop>
-                    <StyledNavLink secondary='true' to='/'>Zaloguj</StyledNavLink>
-                    <StyledNavLink secondary='true' to='/'>Załóż konto</StyledNavLink>
+                    <StyledNavLink secondary='true' to='/logowanie'>Zaloguj</StyledNavLink>
+                    <StyledNavLink secondary='true' to='/rejestracja'>Załóż konto</StyledNavLink>
                 </StyledHeaderTop>
                 <StyledHeaderBottom>
                     <StyledNavLink exact to='/'>Start</StyledNavLink>
                     <StyledScrollLink to='section'>O co chodzi?</StyledScrollLink>
-                    <StyledNavLink to='/'>O nas</StyledNavLink>
-                    <StyledNavLink to='/'>Fundacja i organizacje</StyledNavLink>
-                    <StyledNavLink to='/'>Kontakt</StyledNavLink>
+                    <StyledScrollLink to='about'>O nas</StyledScrollLink>
+                    <StyledScrollLink to='whowehelp'>Fundacja i organizacje</StyledScrollLink>
+                    <StyledScrollLink to='contact'>Kontakt</StyledScrollLink>
                 </StyledHeaderBottom>
             </StyledHeader>
 

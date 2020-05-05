@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Button from '../Button';
 import IconsCards from './IconsCards';
 import Decoration from '../Decoration';
+import { NavLink } from 'react-router-dom';
 
 const StyledSteps = styled.div`
     width: 100%;
@@ -29,9 +30,11 @@ const Steps = () => {
             </StyledTitle>
             <Decoration />
             <IconsCards />
-            <Button texttransform="uppercase">
-                Oddaj rzeczy
+            <NavLink to='/logowanie'>
+                <Button texttransform="uppercase">
+                    Oddaj rzeczy
             </Button>
+            </NavLink>
         </StyledSteps>
     )
 }

@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import styled from 'styled-components';
 import Decoration from '../Decoration';
 import Button from '../Button';
+import Foundations from './Foundations';
+import Pagination from './Pagination';
 
 const StyledWhoWeHelpContainer = styled.div`
     max-width: 1344px;
@@ -51,13 +54,44 @@ const StyledContentTitle = styled.h3`
 
 const StyledList = styled.div``;
 
-const StyledListElement = styled.div`
-    display: flex;
-`;
-
 const StyledPagination = styled.div``;
 
 const WhoWeHelp = () => {
+
+    const [foundations, setFoundations] = useState([]);
+    const [organizations, setOrganizations] = useState([]);
+    const [locals, setLocals] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [foundationPerPage, setFoundationPerPage] = useState(3);
+
+    useEffect(() => {
+
+        // fetch('http://localhost:3000/db')
+        //     .then(res => res.json())
+        //     .then(res => setPosts(res.foundations))
+        //     .catch(err => console.warn(err))
+
+        const fetchFoundations = async () => {
+            const res = await axios.get('http://localhost:3000/foundations');
+            setFoundations(res.data);
+        }
+
+        fetchFoundations();
+
+    }, [])
+
+    console.log(foundations);
+
+    // Get current foundations
+
+    const indexOfLastFoundation = currentPage * foundationPerPage;
+    const indexOfFirstFoundation = indexOfLastFoundation - foundationPerPage;
+    const currentFoundations = foundations.slice(indexOfFirstFoundation, indexOfLastFoundation);
+
+    // Change page
+
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
     return (
         <StyledWhoWeHelpContainer>
             <StyledTitle>
@@ -80,46 +114,11 @@ const WhoWeHelp = () => {
                     W naszej bazie znajdziesz listę zweryfikowanych Fundacji, z którymi współpracujemy. Możesz sprawdzić czym się zajmują, komu pomagają i czego potrzebują.
                 </StyledContentTitle>
                 <StyledList>
-                    <li>
-                        <StyledListElement>
-                            <div>
-                                <p>Fundacja “Dbam o Zdrowie”</p>
-                                <p>Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej.</p>
-                            </div>
-                            <div>
-                                <p>ubrania, jedzenie, sprzęt AGD, meble, zabawki</p>
-                            </div>
-                        </StyledListElement>
-                    </li>
-                    <li>
-                        <StyledListElement>
-                            <div>
-                                <p>Fundacja “Dbam o Zdrowie”</p>
-                                <p>Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej.</p>
-                            </div>
-                            <div>
-                                <p>ubrania, jedzenie, sprzęt AGD, meble, zabawki</p>
-                            </div>
-                        </StyledListElement>
-                    </li>
-                    <li>
-                        <StyledListElement>
-                            <div>
-                                <p>Fundacja “Dbam o Zdrowie”</p>
-                                <p>Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej.</p>
-                            </div>
-                            <div>
-                                <p>ubrania, jedzenie, sprzęt AGD, meble, zabawki</p>
-                            </div>
-                        </StyledListElement>
-                    </li>
+                    <Foundations foundations={currentFoundations} />
+                    <Pagination foundationPerPage={foundationPerPage} totalFoundations={foundations.length} paginate={paginate} />
                 </StyledList>
                 <StyledPagination>
-                    <StyledListElement>
-                        <li>1</li>
-                        <li>2</li>
-                        <li>3</li>
-                    </StyledListElement>
+
                 </StyledPagination>
             </StyledContent>
         </StyledWhoWeHelpContainer>

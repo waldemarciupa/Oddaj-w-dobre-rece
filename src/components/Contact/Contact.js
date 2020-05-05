@@ -73,7 +73,7 @@ const StyledTextarea = styled.textarea`
     color: #272727;
     font-family: ${({ theme }) => theme.OpenSans};
     font-size: 16px;
-    margin-bottom: 60px;
+    margin-bottom: 100px;
 `;
 
 const StyledInput = styled.input`

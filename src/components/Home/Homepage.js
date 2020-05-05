@@ -13,14 +13,19 @@ const Homepage = () => {
         <>
             <Welcome />
             <Statistic />
-            <Steps />
-            <About />
-            <WhoWeHelp />
-            <Contact />
-            <Footer />
-            <Element style={{ marginTop: "1500px" }} id="section" >
-                Section
+            <Element id="section" >
+                <Steps />
             </Element>
+            <Element id="about" >
+                <About />
+            </Element>
+            <Element id="whowehelp" >
+                <WhoWeHelp />
+            </Element>
+            <Element id="contact" >
+                <Contact />
+            </Element>
+            <Footer />
         </>
     )
 }
