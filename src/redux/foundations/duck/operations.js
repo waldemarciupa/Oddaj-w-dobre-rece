@@ -5,6 +5,7 @@ const fetchFoundations = async () => {
         { method: 'GET' }
     );
     const json = await response.json();
+
     return json;
 }
 
@@ -12,5 +13,5 @@ export const getAllFoundations = () =>
     async (dispatch) => {
         const foundations = await fetchFoundations();
         console.log(foundations);
-        foundations.map(foundation => dispatch(actions.add(foundation.name)))
+        foundations.map(foundation => dispatch(actions.add(foundation)))
     }

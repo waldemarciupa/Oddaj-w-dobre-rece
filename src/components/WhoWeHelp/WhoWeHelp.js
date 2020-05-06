@@ -5,12 +5,11 @@ import Decoration from '../Decoration';
 import Button from '../Button';
 import Foundations from './Foundations';
 import Pagination from './Pagination';
-import FoundationsContainer from '../../redux/foundations/FoundationsContainer';
+import FoundationsContainer from './FoundationsContainer';
 import MoviesForm from '../../redux/foundations/duck/FoundationsForm';
 
 const StyledWhoWeHelpContainer = styled.div`
     max-width: 1344px;
-    height: 80vh;
     margin: 30px auto 0;
     display: flex;
     flex-direction: column;
@@ -26,7 +25,7 @@ const StyledTitle = styled.div`
 `;
 
 const StyledNavigation = styled.div`
-    width: 80%;
+    width: 800px;
     display: flex;
     justify-content: space-around;
 `;
@@ -39,8 +38,7 @@ const StyledButton = styled(Button)`
 `;
 
 const StyledContent = styled.div`
-    max-width: 1344px;
-    height: 500px;
+    width: 1344px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -54,33 +52,36 @@ const StyledContentTitle = styled.h3`
     text-align: center;
 `;
 
-const StyledList = styled.div``;
+const StyledList = styled.div`
+    width: 100%;
+    height: 100%;
+`;
 
 
 const WhoWeHelp = () => {
 
-    const [foundations, setFoundations] = useState([]);
-    const [currentPage, setCurrentPage] = useState(1);
-    const [foundationPerPage] = useState(3);
+    // const [foundations, setFoundations] = useState([]);
+    // const [currentPage, setCurrentPage] = useState(1);
+    // const [foundationPerPage] = useState(3);
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        const fetchFoundations = async () => {
-            const res = await axios.get('http://localhost:3000/foundations');
-            setFoundations(res.data);
-        }
+    //     const fetchFoundations = async () => {
+    //         const res = await axios.get('http://localhost:3000/foundations');
+    //         setFoundations(res.data);
+    //     }
 
-        fetchFoundations();
+    //     fetchFoundations();
 
-    }, [])
+    // }, [])
 
-    // Get current foundations
-    const indexOfLastFoundation = currentPage * foundationPerPage;
-    const indexOfFirstFoundation = indexOfLastFoundation - foundationPerPage;
-    const currentFoundations = foundations.slice(indexOfFirstFoundation, indexOfLastFoundation);
+    // // Get current foundations
+    // const indexOfLastFoundation = currentPage * foundationPerPage;
+    // const indexOfFirstFoundation = indexOfLastFoundation - foundationPerPage;
+    // const currentFoundations = foundations.slice(indexOfFirstFoundation, indexOfLastFoundation);
 
-    // Change page
-    const paginate = (pageNumber) => setCurrentPage(pageNumber);
+    // // Change page
+    // const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     return (
         <StyledWhoWeHelpContainer>
@@ -107,7 +108,7 @@ const WhoWeHelp = () => {
                 <StyledList>
                     <FoundationsContainer />
                     {/* <Foundations foundations={currentFoundations} /> */}
-                    <Pagination foundationPerPage={foundationPerPage} totalFoundations={foundations.length} paginate={paginate} />
+                    {/* <Pagination foundationPerPage={foundationPerPage} totalFoundations={foundations.length} paginate={paginate} /> */}
                 </StyledList>
             </StyledContent>
         </StyledWhoWeHelpContainer>
