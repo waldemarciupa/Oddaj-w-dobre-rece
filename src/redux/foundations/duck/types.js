@@ -1,7 +1,9 @@
 const ADD_FOUNDATION = 'ADD_FOUNDATION';
 const RESET_FOUNDATIONS = 'RESET_FOUNDATIONS';
+const CLEAR = "Clear list"
 
 export default {
     ADD_FOUNDATION,
-    RESET_FOUNDATIONS
+    RESET_FOUNDATIONS,
+    CLEAR
 };

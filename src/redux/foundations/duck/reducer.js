@@ -18,6 +18,8 @@ const foundationsReducer = (state = INITIAL_STATE, { payload, type }) => {
             return {
                 ...state, list: []
             }
+        case types.CLEAR:
+            return INITIAL_STATE
         default:
             return state
     }

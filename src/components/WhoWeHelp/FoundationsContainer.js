@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { getAllFoundations } from '../../redux/foundations/duck/operations';
+import { getAllFoundations, clear } from '../../redux/foundations/duck/operations';
 import Pagination from './Pagination';
 
 const StyledListElement = styled.li`
@@ -40,7 +40,7 @@ const StyledThings = styled.p`
     font-weight: 300;
 `;
 
-const FoundationsContainer = ({ foundations, getAllFoundations }) => {
+const FoundationsContainer = ({ foundations, getAllFoundations, clear }) => {
 
     // const [foundations, setFoundations] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
@@ -48,6 +48,7 @@ const FoundationsContainer = ({ foundations, getAllFoundations }) => {
 
     useEffect(() => {
         getAllFoundations();
+        return () => clear()
     }, [])
 
     // Get current foundations
@@ -85,7 +86,8 @@ const FoundationsContainer = ({ foundations, getAllFoundations }) => {
 const mapStateToProps = ({ foundations }) => ({ foundations })
 
 const mapDispatchToProps = (dispatch) => ({
-    getAllFoundations: () => dispatch(getAllFoundations())
+    getAllFoundations: () => dispatch(getAllFoundations("organizations")),
+    clear: () => dispatch(clear())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(FoundationsContainer)

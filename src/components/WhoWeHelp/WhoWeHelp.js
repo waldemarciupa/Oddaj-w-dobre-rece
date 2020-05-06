@@ -98,9 +98,7 @@ const WhoWeHelp = () => {
                     W naszej bazie znajdziesz listę zweryfikowanych Fundacji, z którymi współpracujemy. Możesz sprawdzić czym się zajmują, komu pomagają i czego potrzebują.
                 </StyledContentTitle>
                 <StyledList>
-                    {route === 'foundations' && <FoundationsContainer />}
-                    {route === 'organizations' && <OrganizationsContainer />}
-                    {route === 'locals' && <OrganizationsContainer />}
+                    <FoundationsContainer />}
                 </StyledList>
             </StyledContent>
         </StyledWhoWeHelpContainer>
