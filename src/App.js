@@ -4,7 +4,6 @@ import Homepage from './components/Home';
 import NotFound from './components/NotFound';
 import MainTemplate from './templates/MainTemplate';
 
-
 const App = () => {
   return (
     <Router>

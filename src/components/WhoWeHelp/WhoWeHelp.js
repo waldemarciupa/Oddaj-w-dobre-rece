@@ -5,6 +5,8 @@ import Decoration from '../Decoration';
 import Button from '../Button';
 import Foundations from './Foundations';
 import Pagination from './Pagination';
+import FoundationsContainer from '../../redux/foundations/FoundationsContainer';
+import MoviesForm from '../../redux/foundations/duck/FoundationsForm';
 
 const StyledWhoWeHelpContainer = styled.div`
     max-width: 1344px;
@@ -54,22 +56,14 @@ const StyledContentTitle = styled.h3`
 
 const StyledList = styled.div``;
 
-const StyledPagination = styled.div``;
 
 const WhoWeHelp = () => {
 
     const [foundations, setFoundations] = useState([]);
-    const [organizations, setOrganizations] = useState([]);
-    const [locals, setLocals] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const [foundationPerPage, setFoundationPerPage] = useState(3);
+    const [foundationPerPage] = useState(3);
 
     useEffect(() => {
-
-        // fetch('http://localhost:3000/db')
-        //     .then(res => res.json())
-        //     .then(res => setPosts(res.foundations))
-        //     .catch(err => console.warn(err))
 
         const fetchFoundations = async () => {
             const res = await axios.get('http://localhost:3000/foundations');
@@ -80,20 +74,17 @@ const WhoWeHelp = () => {
 
     }, [])
 
-    console.log(foundations);
-
     // Get current foundations
-
     const indexOfLastFoundation = currentPage * foundationPerPage;
     const indexOfFirstFoundation = indexOfLastFoundation - foundationPerPage;
     const currentFoundations = foundations.slice(indexOfFirstFoundation, indexOfLastFoundation);
 
     // Change page
-
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     return (
         <StyledWhoWeHelpContainer>
+            <MoviesForm />
             <StyledTitle>
                 Komu pomagamy?
             </StyledTitle>
@@ -114,12 +105,10 @@ const WhoWeHelp = () => {
                     W naszej bazie znajdziesz listę zweryfikowanych Fundacji, z którymi współpracujemy. Możesz sprawdzić czym się zajmują, komu pomagają i czego potrzebują.
                 </StyledContentTitle>
                 <StyledList>
-                    <Foundations foundations={currentFoundations} />
+                    <FoundationsContainer />
+                    {/* <Foundations foundations={currentFoundations} /> */}
                     <Pagination foundationPerPage={foundationPerPage} totalFoundations={foundations.length} paginate={paginate} />
                 </StyledList>
-                <StyledPagination>
-
-                </StyledPagination>
             </StyledContent>
         </StyledWhoWeHelpContainer>
     )
