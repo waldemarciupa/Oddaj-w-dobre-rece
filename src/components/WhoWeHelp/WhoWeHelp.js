@@ -1,12 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Decoration from '../Decoration';
 import Button from '../Button';
-import Foundations from './Foundations';
-import Pagination from './Pagination';
 import FoundationsContainer from './FoundationsContainer';
 import MoviesForm from '../../redux/foundations/duck/FoundationsForm';
+import OrganizationsContainer from './OrganizationsContainer';
 
 const StyledWhoWeHelpContainer = styled.div`
     max-width: 1344px;
@@ -22,12 +20,14 @@ const StyledTitle = styled.div`
     line-height: 55px;
     letter-spacing: -0.76px;
     font-weight: 400;
+    margin-bottom: 50px;
 `;
 
 const StyledNavigation = styled.div`
     width: 800px;
     display: flex;
     justify-content: space-around;
+    margin-top: 50px;
 `;
 
 const StyledButton = styled(Button)`
@@ -50,6 +50,7 @@ const StyledContentTitle = styled.h3`
     line-height: 30px;
     width: 640px;
     text-align: center;
+    margin: 70px auto 50px;
 `;
 
 const StyledList = styled.div`
@@ -60,28 +61,19 @@ const StyledList = styled.div`
 
 const WhoWeHelp = () => {
 
-    // const [foundations, setFoundations] = useState([]);
-    // const [currentPage, setCurrentPage] = useState(1);
-    // const [foundationPerPage] = useState(3);
+    const [route, setRoute] = useState('foundations');
 
-    // useEffect(() => {
+    const changeRouteToFoundations = () => {
+        setRoute('foundations');
+    }
 
-    //     const fetchFoundations = async () => {
-    //         const res = await axios.get('http://localhost:3000/foundations');
-    //         setFoundations(res.data);
-    //     }
+    const changeRouteToOrganizations = () => {
+        setRoute('organizations');
+    }
 
-    //     fetchFoundations();
-
-    // }, [])
-
-    // // Get current foundations
-    // const indexOfLastFoundation = currentPage * foundationPerPage;
-    // const indexOfFirstFoundation = indexOfLastFoundation - foundationPerPage;
-    // const currentFoundations = foundations.slice(indexOfFirstFoundation, indexOfLastFoundation);
-
-    // // Change page
-    // const paginate = (pageNumber) => setCurrentPage(pageNumber);
+    const changeRouteToLocals = () => {
+        setRoute('locals');
+    }
 
     return (
         <StyledWhoWeHelpContainer>
@@ -91,13 +83,13 @@ const WhoWeHelp = () => {
             </StyledTitle>
             <Decoration />
             <StyledNavigation>
-                <StyledButton>
+                <StyledButton onClick={changeRouteToFoundations} >
                     Fundacjom
                 </StyledButton>
-                <StyledButton>
+                <StyledButton onClick={changeRouteToOrganizations} >
                     Organizacjom pozarządowym
                 </StyledButton>
-                <StyledButton>
+                <StyledButton onClick={changeRouteToLocals} >
                     Lokalnym zbiórkom
                 </StyledButton>
             </StyledNavigation>
@@ -106,9 +98,9 @@ const WhoWeHelp = () => {
                     W naszej bazie znajdziesz listę zweryfikowanych Fundacji, z którymi współpracujemy. Możesz sprawdzić czym się zajmują, komu pomagają i czego potrzebują.
                 </StyledContentTitle>
                 <StyledList>
-                    <FoundationsContainer />
-                    {/* <Foundations foundations={currentFoundations} /> */}
-                    {/* <Pagination foundationPerPage={foundationPerPage} totalFoundations={foundations.length} paginate={paginate} /> */}
+                    {route === 'foundations' && <FoundationsContainer />}
+                    {route === 'organizations' && <OrganizationsContainer />}
+                    {route === 'locals' && <OrganizationsContainer />}
                 </StyledList>
             </StyledContent>
         </StyledWhoWeHelpContainer>

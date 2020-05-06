@@ -46,7 +46,6 @@ const FoundationsContainer = ({ foundations, getAllFoundations }) => {
     const [currentPage, setCurrentPage] = useState(1);
     const [foundationPerPage] = useState(3);
 
-
     useEffect(() => {
         getAllFoundations();
     }, [])
@@ -59,13 +58,10 @@ const FoundationsContainer = ({ foundations, getAllFoundations }) => {
     // Change page
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-    console.log(foundations.list.length);
-
-
     return (
         <>
             <ul>
-                {currentFoundations.map(({ name, mission, things }) => <StyledListElement>
+                {currentFoundations.map(({ name, mission, things }, i) => <StyledListElement key={i}>
                     <StyledListElementLeft>
                         <StyledName>
                             {name}
@@ -85,7 +81,6 @@ const FoundationsContainer = ({ foundations, getAllFoundations }) => {
     )
 
 }
-
 
 const mapStateToProps = ({ foundations }) => ({ foundations })
 

@@ -12,6 +12,15 @@ const StyledNavList = styled.ul`
 `;
 
 const StyledNavListElement = styled.li`
+    border: 1px solid transparent;
+    
+    &:hover {
+        background: #ddd;
+    }
+    &:active {
+        border: 1px solid #707070;
+        color: red;
+    }
 
 `;
 
@@ -21,6 +30,7 @@ const StyledNavListLink = styled.a`
     line-height: 24px;
     color: #3C3C3C;
     padding: 0 10px;
+
 `
 
 
