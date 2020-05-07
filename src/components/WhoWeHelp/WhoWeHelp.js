@@ -61,7 +61,7 @@ const StyledList = styled.div`
     height: 100%;
 `;
 
-// ///////////////////////////////////////
+// FoundationsContainer
 
 const StyledFoundationsContainer = styled.div`
 `;
@@ -161,7 +161,7 @@ const WhoWeHelp = ({ foundations, getAllData, clear }) => {
         ]
     });
 
-    const funkcjaKtoraWyciagaZeStanuToCoCheWyswietlic = (organizations) => {
+    const getThingsFromState = (organizations) => {
 
         let [foundationsData] = foundations.list.filter((foundation) => {
             return foundation.name === organizations;
@@ -179,17 +179,17 @@ const WhoWeHelp = ({ foundations, getAllData, clear }) => {
 
     const handleClickFound = () => {
         console.log('click');
-        funkcjaKtoraWyciagaZeStanuToCoCheWyswietlic("foundation");
+        getThingsFromState("foundation");
     }
 
     const handleClickORG = () => {
         console.log('click');
-        funkcjaKtoraWyciagaZeStanuToCoCheWyswietlic("organizations");
+        getThingsFromState("organizations");
     }
 
     const handleClickLocals = () => {
         console.log('click');
-        funkcjaKtoraWyciagaZeStanuToCoCheWyswietlic("locals");
+        getThingsFromState("locals");
     }
 
     // Get current foundations
@@ -199,6 +199,8 @@ const WhoWeHelp = ({ foundations, getAllData, clear }) => {
 
     // Change page
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+    console.log(foundations)
 
     return (
         <StyledWhoWeHelpContainer>
