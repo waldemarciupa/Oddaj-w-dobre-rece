@@ -1,8 +1,8 @@
 import actions from './actions';
 import types from './types'
 
-const fetchFoundations = async (name) => {
-    const response = await fetch(`http://localhost:3000/${name}`,
+const fetchData = async () => {
+    const response = await fetch(`http://localhost:3000/foundations`,
         { method: 'GET' }
     );
     const json = await response.json();
@@ -14,8 +14,8 @@ export const clear = () => ({
     type: types.CLEAR
 })
 
-export const getAllFoundations = (name) =>
+export const getAllData = () =>
     async (dispatch) => {
-        const foundations = await fetchFoundations(name);
-        foundations.map(foundation => dispatch(actions.add(foundation)))
+        const foundations = await fetchData();
+        foundations.map(foundation => dispatch(actions.add(foundation)));
     }

@@ -1,98 +1,112 @@
 {
   "foundations": [
     {
-      "name": "1Fundacja “Dbam o Zdrowie”",
-      "mission": "Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
-      "things": "ubrania, jedzenie, sprzęt AGD, meble, zabawki"
+      "name": "foundation",
+      "desc": "W naszej bazie znajdziesz listę zweryfikowanych Fundacji, z którymi współpracujemy. Możesz sprawdzić czym się zajmują, komu pomagają i czego potrzebują.",
+      "items": [
+        {
+          "header": "Fundacja “Dbam o Zdrowie”",
+          "mission": "Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
+          "things": "ubrania, jedzenie, sprzęt AGD, meble, zabawki"
+        },
+        {
+          "header": "Fundacja “Dla dzieci””",
+          "mission": "Pomoc dzieciom z ubogich rodzin.",
+          "things": "ubrania, meble, zabawki"
+        },
+        {
+          "header": "Fundacja “Bez domu””",
+          "mission": "Pomoc dla osób nie posiadających miejsca zamieszkania.",
+          "things": "ubrania, jedzenie, ciepłe koce"
+        },
+        {
+          "header": "Fundacja “Dla dzieci””",
+          "mission": "Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
+          "things": "ubrania, jedzenie, sprzęt AGD, meble, zabawki"
+        },
+        {
+          "header": "Fundacja “Dbam o Zdrowie”",
+          "mission": "Pomoc dzieciom z ubogich rodzin.",
+          "things": "ubrania, meble, zabawki"
+        },
+        {
+          "header": "Fundacja “Dla dzieci””",
+          "mission": "Pomoc dla osób nie posiadających miejsca zamieszkania.",
+          "things": "ubrania, jedzenie, ciepłe koce"
+        },
+        {
+          "header": "Fundacja “Bez domu””",
+          "mission": "Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
+          "things": "ubrania, jedzenie, sprzęt AGD, meble, zabawki"
+        },
+        {
+          "header": "Fundacja “Dla dzieci””",
+          "mission": "Pomoc dzieciom z ubogich rodzin.",
+          "things": "ubrania, meble, zabawki"
+        },
+        {
+          "header": "Fundacja “Bez domu””",
+          "mission": "Pomoc dla osób nie posiadających miejsca zamieszkania.",
+          "things": "ubrania, jedzenie, ciepłe koce"
+        }
+      ]
     },
     {
-      "name": "2Fundacja “Dla dzieci””",
-      "mission": "Pomoc dzieciom z ubogich rodzin.",
-      "things": "ubrania, meble, zabawki"
+      "name": "organizations",
+      "desc": "W naszej bazie znajdziesz listę zweryfikowanych Organizacji Pozarządowych, z którymi współpracujemy. Możesz sprawdzić czym się zajmują, komu pomagają i czego potrzebują.",
+      "items": [
+        {
+          "header": "Stowarzyszenie Absolwenci na walizkach",
+          "mission": "Wspieramy szukających pracy, freelancerów i wolontariuszy",
+          "things": "Pomoc osobom znajdującym się w trudnej sytuacji życiowej."
+        },
+        {
+          "header": "Regionalne Stowarzyszenie Kulturalno-Oświatowe Kornel",
+          "mission": "Prowadzenie działalności kulturalnej dzieciom polskim na dawnych kresach Rzeczpospolitej",
+          "things": "Pomoc Polakom"
+        },
+        {
+          "header": "Organizacja “Dbam o Zdrowie”",
+          "mission": "Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
+          "things": "Pomoc osobom znajdującym się w trudnej sytuacji życiowej."
+        },
+        {
+          "header": "Organizacja “Dbam o Zdrowie”",
+          "mission": "Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
+          "things": "Pomoc osobom znajdującym się w trudnej sytuacji życiowej."
+        },
+        {
+          "header": "Organizacja “Dbam o Zdrowie”",
+          "mission": "Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
+          "things": "Pomoc osobom znajdującym się w trudnej sytuacji życiowej."
+        },
+        {
+          "header": "Organizacja “Dbam o Zdrowie”",
+          "mission": "Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
+          "things": "Pomoc osobom znajdującym się w trudnej sytuacji życiowej."
+        }
+      ]
     },
     {
-      "name": "3Fundacja “Bez domu””",
-      "mission": "Pomoc dla osób nie posiadających miejsca zamieszkania.",
-      "things": "ubrania, jedzenie, ciepłe koce"
-    },
-    {
-      "name": "4Fundacja “Dla dzieci””",
-      "mission": "Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
-      "things": "ubrania, jedzenie, sprzęt AGD, meble, zabawki"
-    },
-    {
-      "name": "5Fundacja “Dbam o Zdrowie”",
-      "mission": "Pomoc dzieciom z ubogich rodzin.",
-      "things": "ubrania, meble, zabawki"
-    },
-    {
-      "name": "6Fundacja “Dla dzieci””",
-      "mission": "Pomoc dla osób nie posiadających miejsca zamieszkania.",
-      "things": "ubrania, jedzenie, ciepłe koce"
-    },
-    {
-      "name": "7Fundacja “Bez domu””",
-      "mission": "Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
-      "things": "ubrania, jedzenie, sprzęt AGD, meble, zabawki"
-    },
-    {
-      "name": "8Fundacja “Dla dzieci””",
-      "mission": "Pomoc dzieciom z ubogich rodzin.",
-      "things": "ubrania, meble, zabawki"
-    },
-    {
-      "name": "9Fundacja “Bez domu””",
-      "mission": "Pomoc dla osób nie posiadających miejsca zamieszkania.",
-      "things": "ubrania, jedzenie, ciepłe koce"
-    }
-  ],
-  "organizations": [
-    {
-      "name": "Organizacja “Dbam o Zdrowie”",
-      "mission": "Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
-      "things": "Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej."
-    },
-    {
-      "name": "Organizacja “Dbam o Zdrowie”",
-      "mission": "Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
-      "things": "Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej."
-    },
-    {
-      "name": "Organizacja “Dbam o Zdrowie”",
-      "mission": "Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
-      "things": "Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej."
-    },
-    {
-      "name": "Organizacja “Dbam o Zdrowie”",
-      "mission": "Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
-      "things": "Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej."
-    },
-    {
-      "name": "Organizacja “Dbam o Zdrowie”",
-      "mission": "Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
-      "things": "Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej."
-    },
-    {
-      "name": "Organizacja “Dbam o Zdrowie”",
-      "mission": "Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
-      "things": "Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej."
-    }
-  ],
-  "locals": [
-    {
-      "name": "Fundacja “Dbam o Zdrowie”",
-      "mission": "Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
-      "things": "Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej."
-    },
-    {
-      "name": "Fundacja “Dbam o Zdrowie”",
-      "mission": "Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
-      "things": "Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej."
-    },
-    {
-      "name": "Fundacja “Dbam o Zdrowie”",
-      "mission": "Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
-      "things": "Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej."
+      "name": "locals",
+      "desc": "W naszej bazie znajdziesz listę zweryfikowanych Lokalnych Zbiórek, z którymi współpracujemy.",
+      "items": [
+        {
+          "header": "Fundacja Opieki Nad Zwierzętami Bezdomnymi Przytulisko",
+          "mission": "Zbiórka dobrowolnych darów rzeczowych i finansowych na rzecz schroniska dla bezdomnych zwierzat",
+          "things": "Pomoc dla schroniska"
+        },
+        {
+          "header": "OSP Wola Zabierzowska",
+          "mission": "Zbiórka na sprzęt, umundurowanie i samochód pożarniczy dla OSP Wola Zabierzowska",
+          "things": "Pomoc OSP"
+        },
+        {
+          "header": "Komitet społeczny przy domu kultury Słowianin",
+          "mission": "Na zakup instrumentów muzycznych (flet oraz pianino wraz z osprzętami) dla uzdolnionych dzieci",
+          "things": "Pomoc dzieciom"
+        }
+      ]
     }
   ]
 }
