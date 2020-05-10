@@ -14,8 +14,13 @@ export const clear = () => ({
     type: types.CLEAR
 })
 
+export const getCurrentFundation = fundation => ({
+    type: types.SET_CURRENT_FUNDATION,
+    payload: fundation
+})
+
 export const getAllData = () =>
     async (dispatch) => {
         const foundations = await fetchData();
-        foundations.map(foundation => dispatch(actions.add(foundation)));
+        dispatch(actions.add(foundations))
     }

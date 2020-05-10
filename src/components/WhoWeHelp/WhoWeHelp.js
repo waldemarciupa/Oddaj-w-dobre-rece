@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Decoration from '../Decoration';
 import Button from '../Button';
 // import FoundationsContainer from './FoundationsContainer';
-import { getAllData, clear } from '../../redux/foundations/duck/operations';
+import { getAllData, clear, getCurrentFundation } from '../../redux/foundations/duck/operations';
 import Pagination from './Pagination';
 import { connect } from 'react-redux';
 
@@ -102,75 +102,13 @@ const StyledThings = styled.p`
     font-weight: 300;
 `;
 
-const WhoWeHelp = ({ foundations, getAllData, clear }) => {
+const WhoWeHelp = ({ current, getAllData, clear, getThingsFromState }) => {
 
     // States for pagination
     const [currentPage, setCurrentPage] = useState(1);
     const [foundationPerPage] = useState(3);
 
-    // initial state
-    const [state, setState] = useState({
-        "name": "foundation",
-        "desc": "W naszej bazie znajdziesz listę zweryfikowanych Fundacji, z którymi współpracujemy. Możesz sprawdzić czym się zajmują, komu pomagają i czego potrzebują.",
-        "items": [
-            {
-                "header": "1Fundacja “Dbam o Zdrowie”",
-                "mission": "Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
-                "things": "ubrania, jedzenie, sprzęt AGD, meble, zabawki"
-            },
-            {
-                "header": "2Fundacja “Dla dzieci””",
-                "mission": "Pomoc dzieciom z ubogich rodzin.",
-                "things": "ubrania, meble, zabawki"
-            },
-            {
-                "header": "3Fundacja “Bez domu””",
-                "mission": "Pomoc dla osób nie posiadających miejsca zamieszkania.",
-                "things": "ubrania, jedzenie, ciepłe koce"
-            },
-            {
-                "header": "4Fundacja “Dla dzieci””",
-                "mission": "Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
-                "things": "ubrania, jedzenie, sprzęt AGD, meble, zabawki"
-            },
-            {
-                "header": "5Fundacja “Dbam o Zdrowie”",
-                "mission": "Pomoc dzieciom z ubogich rodzin.",
-                "things": "ubrania, meble, zabawki"
-            },
-            {
-                "header": "6Fundacja “Dla dzieci””",
-                "mission": "Pomoc dla osób nie posiadających miejsca zamieszkania.",
-                "things": "ubrania, jedzenie, ciepłe koce"
-            },
-            {
-                "header": "7Fundacja “Bez domu””",
-                "mission": "Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
-                "things": "ubrania, jedzenie, sprzęt AGD, meble, zabawki"
-            },
-            {
-                "header": "8Fundacja “Dla dzieci””",
-                "mission": "Pomoc dzieciom z ubogich rodzin.",
-                "things": "ubrania, meble, zabawki"
-            },
-            {
-                "header": "9Fundacja “Bez domu””",
-                "mission": "Pomoc dla osób nie posiadających miejsca zamieszkania.",
-                "things": "ubrania, jedzenie, ciepłe koce"
-            }
-        ]
-    });
 
-    const getThingsFromState = (organizations) => {
-
-        let [foundationsData] = foundations.list.filter((foundation) => {
-            return foundation.name === organizations;
-        });
-
-        console.log(foundationsData)
-
-        setState(foundationsData);
-    }
 
     useEffect(() => {
         getAllData();
@@ -195,12 +133,10 @@ const WhoWeHelp = ({ foundations, getAllData, clear }) => {
     // Get current foundations
     const indexOfLastFoundation = currentPage * foundationPerPage;
     const indexOfFirstFoundation = indexOfLastFoundation - foundationPerPage;
-    const currentFoundations = state.items.slice(indexOfFirstFoundation, indexOfLastFoundation);
+    const currentFoundations = current?.items?.slice(indexOfFirstFoundation, indexOfLastFoundation) || [];
 
     // Change page
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
-    console.log(foundations)
 
     return (
         <StyledWhoWeHelpContainer>
@@ -222,7 +158,7 @@ const WhoWeHelp = ({ foundations, getAllData, clear }) => {
             </StyledNavigation>
             <StyledContent>
                 <StyledContentTitle>
-                    {state.desc}
+                    {current?.desc}
                 </StyledContentTitle>
                 <StyledList>
                     <StyledFoundationsContainer>
@@ -242,7 +178,7 @@ const WhoWeHelp = ({ foundations, getAllData, clear }) => {
                             </StyledListElement>
                             )}
                         </ul>
-                        <Pagination foundationPerPage={foundationPerPage} totalFoundations={state.items.length} paginate={paginate} />
+                        <Pagination foundationPerPage={foundationPerPage} totalFoundations={current?.items?.length} paginate={paginate} />
                     </StyledFoundationsContainer>
                 </StyledList>
             </StyledContent>
@@ -250,11 +186,12 @@ const WhoWeHelp = ({ foundations, getAllData, clear }) => {
     )
 }
 
-const mapStateToProps = ({ foundations }) => ({ foundations })
+const mapStateToProps = ({ foundations }) => ({ current: foundations.current })
 
 const mapDispatchToProps = (dispatch) => ({
     getAllData: () => dispatch(getAllData()),
-    clear: () => dispatch(clear())
+    clear: () => dispatch(clear()),
+    getThingsFromState: fundation => dispatch(getCurrentFundation(fundation))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(WhoWeHelp)
