@@ -12,6 +12,20 @@ const StyledHeader = styled.div`
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+
+    @media (max-width: 1366px) {
+        top: 17px;
+        height: 55px;
+    }
+`;
+
+const StyledHeaderTop = styled.div`
+    text-align: right;
+`;
+
+const StyledHeaderBottom = styled.div`
+    display: flex;
+    justify-content: flex-end;
 `;
 
 const StyledNavLink = styled(NavLink)`
@@ -24,8 +38,8 @@ const StyledNavLink = styled(NavLink)`
         return (
             secondary && css`
             color: #737373;
-            margin-left: 10px;
-            padding: 9px 10px;
+            /* margin-left: 10px; */
+            padding: 9px 20px;
             font-size: 13px;
             `
         )
@@ -47,21 +61,12 @@ const StyledScrollLink = styled(Link).attrs({
             secondary && css`
             color: #737373;
             margin-left: 10px;
-            padding: 9px 10px;
+            padding: 9px 20px;
             font-size: 13px;
             `
         )
     }}
 `
-
-const StyledHeaderTop = styled.div`
-    text-align: right;
-`;
-
-const StyledHeaderBottom = styled.div`
-    display: flex;
-    justify-content: flex-end;
-`;
 
 const Header = () => {
     return (

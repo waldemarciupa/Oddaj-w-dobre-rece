@@ -112,7 +112,7 @@ const WhoWeHelp = ({ current, getAllData, clear, getThingsFromState }) => {
 
     useEffect(() => {
         getAllData();
-        return () => clear()
+        // return () => clear()
     }, [])
 
     const handleClickFound = () => {
@@ -190,7 +190,7 @@ const mapStateToProps = ({ foundations }) => ({ current: foundations.current })
 
 const mapDispatchToProps = (dispatch) => ({
     getAllData: () => dispatch(getAllData()),
-    clear: () => dispatch(clear()),
+    // clear: () => dispatch(clear()),
     getThingsFromState: fundation => dispatch(getCurrentFundation(fundation))
 })
 
