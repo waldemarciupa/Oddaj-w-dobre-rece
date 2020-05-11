@@ -1,5 +1,4 @@
 import types from './types';
-import actions from './actions';
 
 const INITIAL_STATE = {
     current: {}
@@ -11,6 +10,11 @@ const usersReducer = (state = INITIAL_STATE, { payload, type }) => {
             return {
                 ...state,
                 current: payload
+            }
+        case types.LOGOUT_CURRENT_USER:
+            return {
+                ...state,
+                current: {}
             }
         default:
             return state

@@ -1,5 +1,4 @@
 import types from './types';
-import actions from './actions';
 
 const INITIAL_STATE = {
     list: [],
@@ -9,7 +8,6 @@ const INITIAL_STATE = {
 const foundationsReducer = (state = INITIAL_STATE, { payload, type }) => {
     switch (type) {
         case types.ADD_FOUNDATION:
-            console.log(payload)
             return {
                 ...state,
                 list: payload,
@@ -20,7 +18,6 @@ const foundationsReducer = (state = INITIAL_STATE, { payload, type }) => {
                 ...state, list: []
             }
         case types.SET_CURRENT_FUNDATION:
-            const arr = [...state.list];
             return {
                 ...state,
                 current: state.list.find(el => el.name === payload)

@@ -53,27 +53,6 @@ const StyledButtonsWrapper = styled.div`
     justify-content: space-between;
 `;
 
-// const StyledButtonRedirect = styled(NavLink)`
-//     border: 0.75px solid #3C3C3C;
-//     width: 310px;
-//     height: 120px;
-//     cursor: pointer;
-//     font-size: 36px;
-//     line-height: 45px;
-//     text-align: center;
-//     font-family: ${({ theme }) => theme.OpenSans};
-//     font-weight: 300;
-//     letter-spacing: 0;
-//     color: #3C3C3C;
-//     text-transform: ${({ texttransform }) => texttransform ? texttransform : "none"};
-//     text-decoration: none;
-// `;
-
-const redirectLogin = () => {
-    console.log('redirect');
-
-}
-
 const Welcome = () => {
     return (
         <StyledWelcomeWrapper>
@@ -85,7 +64,7 @@ const Welcome = () => {
                     </StyledWelcomeTitle>
                     <StyledButtonsWrapper>
                         <NavLink to='/logowanie'>
-                            <Button texttransform="uppercase" onClick={redirectLogin}>
+                            <Button texttransform="uppercase">
                                 Oddaj rzeczy
                             </Button>
                         </NavLink>

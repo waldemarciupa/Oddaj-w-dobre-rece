@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { Link } from 'react-scroll';
-
+import { LogoutCurrentUser } from '../redux/users/actions';
 import { connect } from 'react-redux';
 
 const StyledHeader = styled.div`
@@ -82,11 +82,9 @@ const StyledScrollLink = styled(Link).attrs({
     }}
 `
 
-const Header = ({ user }) => {
+const Header = ({ user, logout }) => {
 
     const isLoggedIn = user?.email;
-
-    console.log(!!isLoggedIn);
 
     return (
         <>
@@ -97,11 +95,15 @@ const Header = ({ user }) => {
                             <StyledUser>Cześć {user?.email}!</StyledUser>
                             <StyledNavLink
                                 secondary='true'
-                                to='/logowanie'>
+                                to='/'
+                                style={{ color: "#000" }}
+                            >
                                 Oddaj rzeczy</StyledNavLink>
                             <StyledNavLink
                                 secondary='true'
-                                to='/logowanie'>
+                                to='/wylogowano'
+                                onClick={logout}
+                            >
                                 Wyloguj</StyledNavLink>
                         </StyledHeaderTopUser>
                         :
@@ -133,12 +135,13 @@ const Header = ({ user }) => {
 }
 
 const mapStateToProps = ({ users }) => {
-    // console.log(users)
-    // console.log(users.current.email)
     return {
         user: users.current
     }
-
 }
 
-export default connect(mapStateToProps)(Header);
+const mapDispatchToProps = (dispatch) => ({
+    logout: () => dispatch(LogoutCurrentUser())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

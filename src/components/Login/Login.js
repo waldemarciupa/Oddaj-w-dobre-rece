@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Decoration from '../Decoration';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
@@ -90,6 +90,17 @@ const StylednNavLink = styled(NavLink)`
     padding: 13px;
 `;
 
+const StylednNavLinkHome = styled(NavLink)`
+    width: 150px;
+    height: 50px;
+    border: 1px solid black;
+    color: #000;
+    font-weight: 300;
+    font-size: 18px;
+    text-decoration: none;
+    padding: 13px;
+`;
+
 const StyledButton = styled.button`
     position: absolute;
     bottom: 0;
@@ -112,98 +123,126 @@ const StyledLabel = styled.label`
     font-weight: 600;
 `;
 
-const Login = ({ getUser }) => {
+const StyledLoginSucces = styled.div`
+height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+`;
+
+const Login = ({ getUser, user }) => {
+
+    const isLoggedIn = user?.email;
 
     return (
         <StyledLoginWrapper>
-            <StyledLoginContent>
-                <StyledLoginContentTop>
+            {
+                isLoggedIn ? <StyledLoginSucces>
                     <StyledTitle>
-                        Zaloguj się
-                    </StyledTitle>
+                        Logowanie nastąpiło pomyślnie!
+                </StyledTitle>
                     <Decoration />
-                </StyledLoginContentTop>
-                <StyledLoginContentBottom>
-                    <Formik
-                        initialValues={{
-                            email: '',
-                            password: ''
-                        }}
-                        validate={values => {
-                            const errors = {};
-                            if (!values.email) {
-                                errors.email = "Email wymagany"
-                            } else if (
-                                !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-                            ) {
-                                errors.email = "Niepoprawny adres email";
-                            } else if (/\s/.test(values.email)) {
-                                errors.email = "Email nie może zawierać żadnej spacji"
-                            } else if (!values.password) {
-                                errors.password = "Podaj hasło"
-                            } else if (/\s/.test(values.password)) {
-                                errors.password = "Hasło nie może zawierać żadnej spacji"
-                            }
-                            return errors;
-                        }}
-                        onSubmit={(data, { setSubmitting, resetForm }) => {
-                            setSubmitting(true)
-
-                            getUser(data)
-
-                            setSubmitting(false)
-                            resetForm()
-                        }}
-
+                    <StylednNavLinkHome
+                        to='/'
                     >
-                        {
-                            ({ isSubmitting }) => (
-                                <StyledForm>
-                                    <StyledFormEmail>
-                                        <StyledLabel>
-                                            Email
+                        Strona Główna
+                </StylednNavLinkHome>
+                </StyledLoginSucces>
+                    :
+                    <StyledLoginContent>
+                        <StyledLoginContentTop>
+                            <StyledTitle>
+                                Zaloguj się
+                            </StyledTitle>
+                            <Decoration />
+                        </StyledLoginContentTop>
+                        <StyledLoginContentBottom>
+                            <Formik
+                                initialValues={{
+                                    email: '',
+                                    password: ''
+                                }}
+                                validate={values => {
+                                    const errors = {};
+                                    if (!values.email) {
+                                        errors.email = "Email wymagany"
+                                    } else if (
+                                        !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+                                    ) {
+                                        errors.email = "Niepoprawny adres email";
+                                    } else if (/\s/.test(values.email)) {
+                                        errors.email = "Email nie może zawierać żadnej spacji"
+                                    } else if (!values.password) {
+                                        errors.password = "Podaj hasło"
+                                    } else if (/\s/.test(values.password)) {
+                                        errors.password = "Hasło nie może zawierać żadnej spacji"
+                                    }
+                                    return errors;
+                                }}
+                                onSubmit={(data, { setSubmitting, resetForm }) => {
+                                    setSubmitting(true)
+
+                                    getUser(data)
+
+                                    setSubmitting(false)
+                                    resetForm()
+                                }}
+
+                            >
+                                {
+                                    ({ isSubmitting }) => (
+                                        <StyledForm>
+                                            <StyledFormEmail>
+                                                <StyledLabel>
+                                                    Email
                                     </StyledLabel><br />
-                                        <StyledField
-                                            name="email"
-                                            type="input"
-                                        />
-                                        <StyledErrorMessage
-                                            name="email"
-                                            component="span"
-                                        />
-                                    </StyledFormEmail>
-                                    <StyledFormPassword>
-                                        <StyledLabel>
-                                            Hasło
+                                                <StyledField
+                                                    name="email"
+                                                    type="input"
+                                                />
+                                                <StyledErrorMessage
+                                                    name="email"
+                                                    component="span"
+                                                />
+                                            </StyledFormEmail>
+                                            <StyledFormPassword>
+                                                <StyledLabel>
+                                                    Hasło
                                     </StyledLabel><br />
-                                        <StyledField
-                                            name="password"
-                                            type="password"
-                                        />
-                                        <StyledErrorMessage
-                                            name="password"
-                                            component="span"
-                                        />
-                                    </StyledFormPassword>
-                                    <StylednNavLink to='/rejestracja'>
-                                        Załóż konto
+                                                <StyledField
+                                                    name="password"
+                                                    type="password"
+                                                />
+                                                <StyledErrorMessage
+                                                    name="password"
+                                                    component="span"
+                                                />
+                                            </StyledFormPassword>
+                                            <StylednNavLink to='/rejestracja'>
+                                                Załóż konto
                                     </StylednNavLink>
-                                    <StyledButton
-                                        disabled={isSubmitting}
-                                        type="submit">
-                                        Zaloguj się
+                                            <StyledButton
+                                                disabled={isSubmitting}
+                                                type="submit">
+                                                Zaloguj się
                                     </StyledButton>
-                                </StyledForm>
-                            )
-                        }
-                    </Formik>
-                </StyledLoginContentBottom>
-            </StyledLoginContent>
+                                        </StyledForm>
+                                    )
+                                }
+                            </Formik>
+                        </StyledLoginContentBottom>
+                    </StyledLoginContent>
+            }
         </StyledLoginWrapper>
     )
 }
 
-const mapStateToProps = ({ users }) => ({ users })
+const mapStateToProps = ({ users }) => {
+    return {
+        user: users.current
+    }
+}
 
 const mapDispatchToProps = (dispatch) => ({
     getUser: (user) => dispatch(getUser(user))

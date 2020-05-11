@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Decoration from '../Decoration';
 import Button from '../Button';
 // import FoundationsContainer from './FoundationsContainer';
-import { getAllData, clear, getCurrentFundation } from '../../redux/foundations/operations';
+import { getAllData, getCurrentFundation } from '../../redux/foundations/operations';
 import Pagination from './Pagination';
 import { connect } from 'react-redux';
 
@@ -114,17 +114,14 @@ const WhoWeHelp = ({ current, getAllData, clear, getThingsFromState }) => {
     }, [])
 
     const handleClickFound = () => {
-        console.log('click');
         getThingsFromState("foundation");
     }
 
     const handleClickORG = () => {
-        console.log('click');
         getThingsFromState("organizations");
     }
 
     const handleClickLocals = () => {
-        console.log('click');
         getThingsFromState("locals");
     }
 

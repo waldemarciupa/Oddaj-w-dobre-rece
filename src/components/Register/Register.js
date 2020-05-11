@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Decoration from '../Decoration';
-import { NavLink } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 
 const StyledLoginWrapper = styled.div`
@@ -114,7 +114,7 @@ const StyledLabel = styled.label`
     font-weight: 600;
 `;
 
-const Register = () => {
+const Register = (props) => {
     return (
         <StyledLoginWrapper>
             <StyledLoginContent>
@@ -145,6 +145,8 @@ const Register = () => {
                                 errors.password = "Podaj hasło"
                             } else if (/\s/.test(values.password)) {
                                 errors.password = "Hasło nie może zawierać żadnej spacji"
+                            } else if (values.password.length <= 5) {
+                                errors.password = "Hasło musi zawierać więcej niż 5 znaków"
                             } else if (values.passwordRepeat !== values.password) {
                                 errors.passwordRepeat = "Hasło nie pasuje do poprzedniego"
                             }
@@ -152,7 +154,6 @@ const Register = () => {
                         }}
                         onSubmit={(data, { setSubmitting, resetForm }) => {
                             setSubmitting(true)
-                            console.log(JSON.stringify(data))
 
                             fetch('http://localhost:3000/users/', {
                                 method: "POST",
@@ -162,10 +163,9 @@ const Register = () => {
                                 },
                                 body: JSON.stringify(data)
                             })
-
-
-                            setSubmitting(false)
-                            resetForm()
+                            props.history.push('/logowanie');
+                            // setSubmitting(false)
+                            // resetForm()
                         }}>
                         {
                             ({ isSubmitting }) => (
@@ -213,7 +213,6 @@ const Register = () => {
                                         Zaloguj się
                                     </StylednNavLink>
                                     <StyledButton
-
                                         disabled={isSubmitting}
                                         type="submit">
                                         Załóż konto
@@ -221,8 +220,6 @@ const Register = () => {
                                 </StyledForm>
                             )
                         }
-
-
                     </Formik>
                 </StyledLoginContentBottom>
             </StyledLoginContent>
@@ -230,4 +227,4 @@ const Register = () => {
     )
 }
 
-export default Register;
+export default withRouter(Register);
