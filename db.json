@@ -108,5 +108,19 @@
         }
       ]
     }
+  ],
+  "users": [
+    {
+      "email": "w@w.pl",
+      "password": "a",
+      "passwordRepeat": "a",
+      "id": 1
+    },
+    {
+      "email": "q@q.pl",
+      "password": "a",
+      "passwordRepeat": "a",
+      "id": 2
+    }
   ]
 }

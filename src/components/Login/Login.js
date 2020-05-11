@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import Decoration from '../Decoration';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { NavLink } from 'react-router-dom';
+import { getUser } from '../../redux/users/operations';
+import { connect } from 'react-redux';
 
 const StyledLoginWrapper = styled.div`
     width: 100%;
@@ -110,7 +112,8 @@ const StyledLabel = styled.label`
     font-weight: 600;
 `;
 
-const Login = () => {
+const Login = ({ getUser }) => {
+
     return (
         <StyledLoginWrapper>
             <StyledLoginContent>
@@ -145,10 +148,14 @@ const Login = () => {
                         }}
                         onSubmit={(data, { setSubmitting, resetForm }) => {
                             setSubmitting(true)
-                            console.log(JSON.stringify(data))
+
+                            getUser(data)
+
                             setSubmitting(false)
                             resetForm()
-                        }}>
+                        }}
+
+                    >
                         {
                             ({ isSubmitting }) => (
                                 <StyledForm>
@@ -196,4 +203,12 @@ const Login = () => {
     )
 }
 
-export default Login;
+const mapStateToProps = ({ users }) => ({ users })
+
+const mapDispatchToProps = (dispatch) => ({
+    getUser: (user) => dispatch(getUser(user))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login)
+
+

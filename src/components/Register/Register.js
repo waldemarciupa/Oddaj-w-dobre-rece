@@ -153,6 +153,17 @@ const Register = () => {
                         onSubmit={(data, { setSubmitting, resetForm }) => {
                             setSubmitting(true)
                             console.log(JSON.stringify(data))
+
+                            fetch('http://localhost:3000/users/', {
+                                method: "POST",
+                                headers: {
+                                    'Accept': 'application/json',
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify(data)
+                            })
+
+
                             setSubmitting(false)
                             resetForm()
                         }}>
@@ -202,6 +213,7 @@ const Register = () => {
                                         Zaloguj się
                                     </StylednNavLink>
                                     <StyledButton
+
                                         disabled={isSubmitting}
                                         type="submit">
                                         Załóż konto

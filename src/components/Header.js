@@ -3,6 +3,8 @@ import styled, { css } from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { Link } from 'react-scroll';
 
+import { connect } from 'react-redux';
+
 const StyledHeader = styled.div`
     width: 683px;
     height: 95px;
@@ -21,6 +23,18 @@ const StyledHeader = styled.div`
 
 const StyledHeaderTop = styled.div`
     text-align: right;
+`;
+
+const StyledHeaderTopUser = styled.div`
+    display: flex;
+    justify-content: flex-end;
+`;
+
+const StyledUser = styled.p`
+    font-size: 14px;
+    font-weight: 400;
+    color: #000;
+    padding: 9px 20px;
 `;
 
 const StyledHeaderBottom = styled.div`
@@ -68,14 +82,43 @@ const StyledScrollLink = styled(Link).attrs({
     }}
 `
 
-const Header = () => {
+const Header = ({ user }) => {
+
+    const isLoggedIn = user?.email;
+
+    console.log(!!isLoggedIn);
+
     return (
         <>
             <StyledHeader>
-                <StyledHeaderTop>
-                    <StyledNavLink secondary='true' to='/logowanie'>Zaloguj</StyledNavLink>
-                    <StyledNavLink secondary='true' to='/rejestracja'>Załóż konto</StyledNavLink>
-                </StyledHeaderTop>
+                {
+                    isLoggedIn ?
+                        <StyledHeaderTopUser>
+                            <StyledUser>Cześć {user?.email}!</StyledUser>
+                            <StyledNavLink
+                                secondary='true'
+                                to='/logowanie'>
+                                Oddaj rzeczy</StyledNavLink>
+                            <StyledNavLink
+                                secondary='true'
+                                to='/logowanie'>
+                                Wyloguj</StyledNavLink>
+                        </StyledHeaderTopUser>
+                        :
+                        <StyledHeaderTop>
+                            <StyledNavLink
+                                secondary='true'
+                                to='/logowanie'>
+                                Zaloguj
+                            </StyledNavLink>
+                            <StyledNavLink
+                                secondary='true'
+                                to='/rejestracja'>
+                                Załóż konto
+                        </StyledNavLink>
+                        </StyledHeaderTop>
+                }
+
                 <StyledHeaderBottom>
                     <StyledNavLink exact to='/'>Start</StyledNavLink>
                     <StyledScrollLink to='section'>O co chodzi?</StyledScrollLink>
@@ -89,4 +132,13 @@ const Header = () => {
     )
 }
 
-export default Header;
+const mapStateToProps = ({ users }) => {
+    // console.log(users)
+    // console.log(users.current.email)
+    return {
+        user: users.current
+    }
+
+}
+
+export default connect(mapStateToProps)(Header);

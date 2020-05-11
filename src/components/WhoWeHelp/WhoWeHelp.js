@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Decoration from '../Decoration';
 import Button from '../Button';
 // import FoundationsContainer from './FoundationsContainer';
-import { getAllData, clear, getCurrentFundation } from '../../redux/foundations/duck/operations';
+import { getAllData, clear, getCurrentFundation } from '../../redux/foundations/operations';
 import Pagination from './Pagination';
 import { connect } from 'react-redux';
 
@@ -107,8 +107,6 @@ const WhoWeHelp = ({ current, getAllData, clear, getThingsFromState }) => {
     // States for pagination
     const [currentPage, setCurrentPage] = useState(1);
     const [foundationPerPage] = useState(3);
-
-
 
     useEffect(() => {
         getAllData();
