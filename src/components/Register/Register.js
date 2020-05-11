@@ -155,11 +155,10 @@ const Register = (props) => {
                         onSubmit={(data, { setSubmitting, resetForm }) => {
                             setSubmitting(true)
 
-                            fetch('http://localhost:3000/users/', {
+                            fetch('http://localhost:3000/users', {
                                 method: "POST",
                                 headers: {
-                                    'Accept': 'application/json',
-                                    'Content-Type': 'application/json'
+                                    'Content-Type': 'application/json',
                                 },
                                 body: JSON.stringify(data)
                             })

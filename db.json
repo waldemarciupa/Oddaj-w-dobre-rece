@@ -109,24 +109,5 @@
       ]
     }
   ],
-  "users": [
-    {
-      "email": "w@w.pl",
-      "password": "a",
-      "passwordRepeat": "a",
-      "id": 1
-    },
-    {
-      "email": "a@a.pl",
-      "password": "aaaaaa",
-      "passwordRepeat": "aaaaaa",
-      "id": 2
-    },
-    {
-      "email": "qqq@q.pl",
-      "password": "qqqqqq",
-      "passwordRepeat": "qqqqqq",
-      "id": 3
-    }
-  ]
+  "users": []
 }

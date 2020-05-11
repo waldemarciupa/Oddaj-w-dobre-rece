@@ -3,10 +3,11 @@ import types from './types'
 
 const fetchData = async () => {
     const response = await fetch(`http://localhost:3000/foundations`,
-        { method: 'GET' }
+        {
+            method: 'GET'
+        }
     );
     const json = await response.json();
-
     return json;
 }
 
