@@ -5,6 +5,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { NavLink } from 'react-router-dom';
 import { getUser } from '../../redux/users/operations';
 import { connect } from 'react-redux';
+import { signInWithGoogle } from '../../firebase/firebase.utils';
 
 const StyledLoginWrapper = styled.div`
     width: 100%;
@@ -42,14 +43,17 @@ const StyledTitle = styled.div`
 
 const StyledLoginContentBottom = styled.div`
     width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    position: relative;
+    justify-content: space-between;
 `;
 
 const StyledForm = styled(Form)`
+`;
+
+const StyledFormTopWrapper = styled.div`
+    
 `;
 
 const StyledFormEmail = styled.div`
@@ -78,10 +82,15 @@ const StyledErrorMessage = styled(ErrorMessage)`
     left: 0;
 `;
 
+const StyledButtonsWrapper = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 50px;
+`;
+
 const StylednNavLink = styled(NavLink)`
-    position: absolute;
-    bottom: 0;
-    left: 0;
     color: #000;
     font-weight: 300;
     font-size: 18px;
@@ -102,9 +111,6 @@ const StylednNavLinkHome = styled(NavLink)`
 `;
 
 const StyledButton = styled.button`
-    position: absolute;
-    bottom: 0;
-    right: 0;
     padding: 13px;
     background: transparent;
     color: #000;
@@ -124,7 +130,7 @@ const StyledLabel = styled.label`
 `;
 
 const StyledLoginSucces = styled.div`
-height: 500px;
+    height: 500px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -193,40 +199,50 @@ const Login = ({ getUser, user }) => {
                                 {
                                     ({ isSubmitting }) => (
                                         <StyledForm>
-                                            <StyledFormEmail>
-                                                <StyledLabel>
-                                                    Email
-                                    </StyledLabel><br />
-                                                <StyledField
-                                                    name="email"
-                                                    type="input"
-                                                />
-                                                <StyledErrorMessage
-                                                    name="email"
-                                                    component="span"
-                                                />
-                                            </StyledFormEmail>
-                                            <StyledFormPassword>
-                                                <StyledLabel>
-                                                    Hasło
-                                    </StyledLabel><br />
-                                                <StyledField
-                                                    name="password"
-                                                    type="password"
-                                                />
-                                                <StyledErrorMessage
-                                                    name="password"
-                                                    component="span"
-                                                />
-                                            </StyledFormPassword>
-                                            <StylednNavLink to='/rejestracja'>
-                                                Załóż konto
+                                            <StyledFormTopWrapper>
+                                                <StyledFormEmail>
+                                                    <StyledLabel>
+                                                        Email
+                                                </StyledLabel><br />
+                                                    <StyledField
+                                                        name="email"
+                                                        type="input"
+                                                    />
+                                                    <StyledErrorMessage
+                                                        name="email"
+                                                        component="span"
+                                                    />
+                                                </StyledFormEmail>
+                                                <StyledFormPassword>
+                                                    <StyledLabel>
+                                                        Hasło
+                                                </StyledLabel><br />
+                                                    <StyledField
+                                                        name="password"
+                                                        type="password"
+                                                    />
+                                                    <StyledErrorMessage
+                                                        name="password"
+                                                        component="span"
+                                                    />
+                                                </StyledFormPassword>
+                                            </StyledFormTopWrapper>
+                                            <StyledButtonsWrapper>
+                                                <StylednNavLink to='/rejestracja'>
+                                                    Załóż konto
                                     </StylednNavLink>
-                                            <StyledButton
-                                                disabled={isSubmitting}
-                                                type="submit">
-                                                Zaloguj się
+                                                <StyledButton
+                                                    disabled={isSubmitting}
+                                                    type="submit">
+                                                    Zaloguj się
                                     </StyledButton>
+                                                <StyledButton
+
+                                                    onClick={signInWithGoogle}
+                                                >
+                                                    Zaloguj z Google
+                                    </StyledButton>
+                                            </StyledButtonsWrapper>
                                         </StyledForm>
                                     )
                                 }

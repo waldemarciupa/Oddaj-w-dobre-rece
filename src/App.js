@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Homepage from './components/Home';
 import NotFound from './components/NotFound';
@@ -6,8 +6,22 @@ import MainTemplate from './templates/MainTemplate';
 import Register from './components/Register/Register';
 import Login from './components/Login/Login';
 import Logout from './components/Logout/Logout';
+import { auth } from './firebase/firebase.utils';
 
 const App = () => {
+
+  const [state, setState] = useState({
+    currentUser: null
+  })
+
+  useEffect(() => {
+    auth.onAuthStateChanged(user => {
+      setState({ currentUser: user });
+
+      console.log(user)
+    })
+  }, [])
+
   return (
     <Router>
       <MainTemplate>
