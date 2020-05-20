@@ -3,7 +3,6 @@ import styled, { css } from 'styled-components';
 import Decoration from '../Decoration';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { NavLink } from 'react-router-dom';
-import { getUser } from '../../redux/users/operations';
 import { connect } from 'react-redux';
 import { auth, signInWithGoogle } from '../../firebase/firebase.utils';
 
@@ -19,9 +18,10 @@ const StyledLoginContent = styled.div`
     width: 500px;
     height: 650px;
     display: grid;
+    align-content: space-around;
 
     @media (max-width: 1366px) {
-        height: 450px
+        height: 550px
     }
 `;
 
@@ -50,6 +50,9 @@ const StyledLoginContentBottom = styled.div`
 `;
 
 const StyledForm = styled(Form)`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `;
 
 const StyledFormTopWrapper = styled.div`
@@ -87,7 +90,7 @@ const StyledButtonsWrapper = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 50px;
+    padding-top: 80px;
 `;
 
 const StylednNavLink = styled(NavLink)`
@@ -137,23 +140,23 @@ const StyledLabel = styled.label`
 `;
 
 const StyledLoginSucces = styled.div`
-    height: 500px;
+    height: 300px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
 `;
 
-const Login = ({ getUser, user }) => {
+const Login = ({ currentUser }) => {
 
-    const isLoggedIn = user?.email;
+    const isLoggedIn = currentUser?.email;
 
     return (
         <StyledLoginWrapper>
             {
                 isLoggedIn ? <StyledLoginSucces>
                     <StyledTitle>
-                        Logowanie nastąpiło pomyślnie!
+                        Pomyślnie zalogowano!
                 </StyledTitle>
                     <Decoration />
                     <StylednNavLinkHome
@@ -193,28 +196,20 @@ const Login = ({ getUser, user }) => {
                                     }
                                     return errors;
                                 }}
-                                // onSubmit={(data, { setSubmitting, resetForm }) => {
-                                //     setSubmitting(true)
-
-                                //     getUser(data)
-
-                                //     setSubmitting(false)
-                                //     resetForm()
-                                // }}
                                 onSubmit={async (data, { setSubmitting, resetForm }) => {
-                                    setSubmitting(true)
+                                    setSubmitting(true);
 
                                     const { email, password } = data;
 
                                     try {
-                                        await auth.signInWithEmailAndPassword(email, password)
+                                        await auth.signInWithEmailAndPassword(email, password);
                                     } catch (error) {
+                                        alert(error);
                                         console.error(error);
                                     }
 
-
-                                    setSubmitting(false)
-                                    resetForm()
+                                    setSubmitting(false);
+                                    resetForm();
                                 }}
                             >
                                 {
@@ -251,8 +246,9 @@ const Login = ({ getUser, user }) => {
                                             <StyledButtonsWrapper>
                                                 <StylednNavLink to='/rejestracja'>
                                                     Załóż konto
-                                    </StylednNavLink>
+                                                </StylednNavLink>
                                                 <StyledButton
+                                                    type="button"
                                                     isGoogleSignIn
                                                     onClick={signInWithGoogle}
                                                 >
@@ -275,16 +271,10 @@ const Login = ({ getUser, user }) => {
     )
 }
 
-const mapStateToProps = ({ users }) => {
+const mapStateToProps = ({ user }) => {
     return {
-        user: users.current
+        currentUser: user.currentUser
     }
 }
 
-const mapDispatchToProps = (dispatch) => ({
-    getUser: (user) => dispatch(getUser(user))
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(Login)
-
-
+export default connect(mapStateToProps)(Login);

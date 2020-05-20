@@ -153,32 +153,19 @@ const Register = (props) => {
                             }
                             return errors;
                         }}
-                        // onSubmit={(data, { setSubmitting, resetForm }) => {
-                        //     setSubmitting(true)
-
-                        //     fetch('http://localhost:3000/users', {
-                        //         method: "POST",
-                        //         headers: {
-                        //             'Content-Type': 'application/json',
-                        //         },
-                        //         body: JSON.stringify(data)
-                        //     })
-                        //     props.history.push('/logowanie');
-                        //     // setSubmitting(false)
-                        //     // resetForm()
-                        // }}
                         onSubmit={async (data, { setSubmitting, resetForm }) => {
                             setSubmitting(true)
                             const { email, password } = data;
                             try {
-                                const { user } = await auth.createUserWithEmailAndPassword(email, password)
+                                const { user } = await auth.createUserWithEmailAndPassword(email, password);
+                                await createUserProfileDocument(user);
+                                props.history.push('/');
 
-                                await createUserProfileDocument(user)
                             } catch (error) {
-                                console.error(error)
+                                alert(error)
+                                console.error(error);
                             }
 
-                            // props.history.push('/logowanie');
                             setSubmitting(false)
                             resetForm()
 

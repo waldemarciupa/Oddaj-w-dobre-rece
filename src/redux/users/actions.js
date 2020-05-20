@@ -1,15 +1,6 @@
 import types from './types';
 
-const setCurrentUser = user => ({
+export const setCurrentUser = user => ({
     type: types.SET_CURRENT_USER,
     payload: user
 });
-
-export const LogoutCurrentUser = () => ({
-    type: types.LOGOUT_CURRENT_USER
-})
-
-export default {
-    setCurrentUser,
-    LogoutCurrentUser
-}

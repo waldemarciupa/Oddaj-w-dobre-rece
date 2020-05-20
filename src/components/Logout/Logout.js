@@ -13,7 +13,7 @@ const StyledLoginWrapper = styled.div`
 
 const StyledLoginContent = styled.div`
     width: 500px;
-    height: 650px;
+    height: 350px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -29,7 +29,6 @@ const StyledTitle = styled.div`
     line-height: 55px;
     letter-spacing: -0.76px;
     font-weight: 400;
-    margin-bottom: 50px;
     text-align: center;
 `;
 
@@ -50,7 +49,7 @@ const Logout = () => {
         <StyledLoginWrapper>
             <StyledLoginContent>
                 <StyledTitle>
-                    Wylogowanie nastąpiło pomyślnie!
+                    Pomyślnie wylogowano!
                 </StyledTitle>
                 <Decoration />
                 <StylednNavLink

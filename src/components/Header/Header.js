@@ -1,10 +1,9 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-// import { LogoutCurrentUser } from '../../redux/users/actions';
+import { auth } from '../../firebase/firebase.utils';
 import { NavLink } from 'react-router-dom';
 import { Link } from 'react-scroll';
 import { connect } from 'react-redux';
-import { auth } from '../../firebase/firebase.utils';
 
 const StyledHeader = styled.div`
     width: 683px;
@@ -53,7 +52,6 @@ const StyledNavLink = styled(NavLink)`
         return (
             secondary && css`
             color: #737373;
-            /* margin-left: 10px; */
             padding: 9px 20px;
             font-size: 13px;
             `
@@ -136,14 +134,10 @@ const Header = ({ currentUser }) => {
     )
 }
 
-const mapStateToProps = ({ users }) => {
+const mapStateToProps = ({ user }) => {
     return {
-        user: users.current
+        currentUser: user.currentUser
     }
 }
-
-// const mapDispatchToProps = (dispatch) => ({
-//     logout: () => dispatch(LogoutCurrentUser())
-// })
 
 export default connect(mapStateToProps)(Header);

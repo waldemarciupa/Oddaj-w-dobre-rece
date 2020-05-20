@@ -7,8 +7,6 @@ import { getAllData, getCurrentFundation } from '../../redux/foundations/operati
 import Pagination from './Pagination';
 import { connect } from 'react-redux';
 
-// import MoviesForm from '../../redux/foundations/duck/FoundationsForm';
-
 const StyledWhoWeHelpContainer = styled.div`
     max-width: 1344px;
     margin: 30px auto 0;
