@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import Decoration from '../Decoration';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { NavLink } from 'react-router-dom';
@@ -121,6 +121,13 @@ const StyledButton = styled.button`
     text-decoration: none;
     border: 0.75px solid #3c3c3c;
     cursor: pointer;
+
+    ${({ isGoogleSignIn }) =>
+        isGoogleSignIn &&
+        css`
+        color: #4285f4;
+        border: 0.75px solid #4285f4; 
+    `}
 `;
 
 const StyledLabel = styled.label`
@@ -232,16 +239,16 @@ const Login = ({ getUser, user }) => {
                                                     Załóż konto
                                     </StylednNavLink>
                                                 <StyledButton
-                                                    disabled={isSubmitting}
-                                                    type="submit">
-                                                    Zaloguj się
-                                    </StyledButton>
-                                                <StyledButton
-
+                                                    isGoogleSignIn
                                                     onClick={signInWithGoogle}
                                                 >
                                                     Zaloguj z Google
-                                    </StyledButton>
+                                                </StyledButton>
+                                                <StyledButton
+                                                    disabled={isSubmitting}
+                                                    type="submit">
+                                                    Zaloguj się
+                                                </StyledButton>
                                             </StyledButtonsWrapper>
                                         </StyledForm>
                                     )

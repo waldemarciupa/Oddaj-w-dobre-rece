@@ -1,9 +1,10 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
+// import { LogoutCurrentUser } from '../../redux/users/actions';
 import { NavLink } from 'react-router-dom';
 import { Link } from 'react-scroll';
-import { LogoutCurrentUser } from '../redux/users/actions';
 import { connect } from 'react-redux';
+import { auth } from '../../firebase/firebase.utils';
 
 const StyledHeader = styled.div`
     width: 683px;
@@ -81,18 +82,22 @@ const StyledScrollLink = styled(Link).attrs({
         )
     }}
 `
+// const Header = ({ user, logout }) => {
+const Header = ({ currentUser }) => {
 
-const Header = ({ user, logout }) => {
+    // const isLoggedIn = user?.email;
 
-    const isLoggedIn = user?.email;
+    const logout = () => {
+        auth.signOut();
+    }
 
     return (
         <>
             <StyledHeader>
                 {
-                    isLoggedIn ?
+                    currentUser ?
                         <StyledHeaderTopUser>
-                            <StyledUser>Cześć {user?.email}!</StyledUser>
+                            <StyledUser>Cześć {currentUser?.email}!</StyledUser>
                             <StyledNavLink
                                 secondary='true'
                                 to='/'
@@ -140,8 +145,8 @@ const mapStateToProps = ({ users }) => {
     }
 }
 
-const mapDispatchToProps = (dispatch) => ({
-    logout: () => dispatch(LogoutCurrentUser())
-})
+// const mapDispatchToProps = (dispatch) => ({
+//     logout: () => dispatch(LogoutCurrentUser())
+// })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default connect(mapStateToProps)(Header);

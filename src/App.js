@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Header from '../src/components/Header/Header';
 import Homepage from './components/Home';
 import NotFound from './components/NotFound';
 import MainTemplate from './templates/MainTemplate';
@@ -8,33 +9,45 @@ import Login from './components/Login/Login';
 import Logout from './components/Logout/Logout';
 import { auth } from './firebase/firebase.utils';
 
-const App = () => {
+class App extends React.Component {
+  constructor(props) {
+    super(props);
 
-  const [state, setState] = useState({
-    currentUser: null
-  })
+    this.state = {
+      currentUser: null
+    }
+  }
 
-  useEffect(() => {
-    auth.onAuthStateChanged(user => {
-      setState({ currentUser: user });
+  unsubscribeFromAuth = null
+
+  componentDidMount() {
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
+      this.setState({ currentUser: user });
 
       console.log(user)
     })
-  }, [])
+  }
 
-  return (
-    <Router>
-      <MainTemplate>
-        <Switch>
-          <Route exact path='/' component={Homepage} />
-          <Route exact path='/rejestracja' component={Register} />
-          <Route exact path='/logowanie' component={Login} />
-          <Route exact path='/wylogowano' component={Logout} />
-          <Route path='*' component={NotFound} />
-        </Switch>
-      </MainTemplate>
-    </Router>
-  );
+  componentWillUnmount() {
+    this.unsubscribeFromAuth();
+  }
+
+  render() {
+    return (
+      <Router>
+        <MainTemplate>
+          <Header currentUser={this.state.currentUser} />
+          <Switch>
+            <Route exact path='/' component={Homepage} />
+            <Route exact path='/rejestracja' component={Register} />
+            <Route exact path='/logowanie' component={Login} />
+            <Route exact path='/wylogowano' component={Logout} />
+            <Route path='*' component={NotFound} />
+          </Switch>
+        </MainTemplate>
+      </Router>
+    );
+  }
 }
 
 export default App;
