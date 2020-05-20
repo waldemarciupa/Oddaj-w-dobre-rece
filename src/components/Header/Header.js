@@ -82,10 +82,7 @@ const StyledScrollLink = styled(Link).attrs({
         )
     }}
 `
-// const Header = ({ user, logout }) => {
 const Header = ({ currentUser }) => {
-
-    // const isLoggedIn = user?.email;
 
     const logout = () => {
         auth.signOut();

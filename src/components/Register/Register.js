@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Decoration from '../Decoration';
 import { NavLink, withRouter } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
 
 const StyledLoginWrapper = styled.div`
     width: 100%;
@@ -152,20 +153,37 @@ const Register = (props) => {
                             }
                             return errors;
                         }}
-                        onSubmit={(data, { setSubmitting, resetForm }) => {
-                            setSubmitting(true)
+                        // onSubmit={(data, { setSubmitting, resetForm }) => {
+                        //     setSubmitting(true)
 
-                            fetch('http://localhost:3000/users', {
-                                method: "POST",
-                                headers: {
-                                    'Content-Type': 'application/json',
-                                },
-                                body: JSON.stringify(data)
-                            })
-                            props.history.push('/logowanie');
-                            // setSubmitting(false)
-                            // resetForm()
-                        }}>
+                        //     fetch('http://localhost:3000/users', {
+                        //         method: "POST",
+                        //         headers: {
+                        //             'Content-Type': 'application/json',
+                        //         },
+                        //         body: JSON.stringify(data)
+                        //     })
+                        //     props.history.push('/logowanie');
+                        //     // setSubmitting(false)
+                        //     // resetForm()
+                        // }}
+                        onSubmit={async (data, { setSubmitting, resetForm }) => {
+                            setSubmitting(true)
+                            const { email, password } = data;
+                            try {
+                                const { user } = await auth.createUserWithEmailAndPassword(email, password)
+
+                                await createUserProfileDocument(user)
+                            } catch (error) {
+                                console.error(error)
+                            }
+
+                            // props.history.push('/logowanie');
+                            setSubmitting(false)
+                            resetForm()
+
+                        }}
+                    >
                         {
                             ({ isSubmitting }) => (
                                 <StyledForm>

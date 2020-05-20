@@ -5,7 +5,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { NavLink } from 'react-router-dom';
 import { getUser } from '../../redux/users/operations';
 import { connect } from 'react-redux';
-import { signInWithGoogle } from '../../firebase/firebase.utils';
+import { auth, signInWithGoogle } from '../../firebase/firebase.utils';
 
 const StyledLoginWrapper = styled.div`
     width: 100%;
@@ -193,15 +193,29 @@ const Login = ({ getUser, user }) => {
                                     }
                                     return errors;
                                 }}
-                                onSubmit={(data, { setSubmitting, resetForm }) => {
+                                // onSubmit={(data, { setSubmitting, resetForm }) => {
+                                //     setSubmitting(true)
+
+                                //     getUser(data)
+
+                                //     setSubmitting(false)
+                                //     resetForm()
+                                // }}
+                                onSubmit={async (data, { setSubmitting, resetForm }) => {
                                     setSubmitting(true)
 
-                                    getUser(data)
+                                    const { email, password } = data;
+
+                                    try {
+                                        await auth.signInWithEmailAndPassword(email, password)
+                                    } catch (error) {
+                                        console.error(error);
+                                    }
+
 
                                     setSubmitting(false)
                                     resetForm()
                                 }}
-
                             >
                                 {
                                     ({ isSubmitting }) => (
