@@ -95,7 +95,7 @@ const Header = ({ currentUser }) => {
                             <StyledUser>Cześć {currentUser?.email}!</StyledUser>
                             <StyledNavLink
                                 secondary='true'
-                                to='/'
+                                to='/Oddaj-w-dobre-rece/'
                                 style={{ color: "#000" }}
                             >
                                 Oddaj rzeczy</StyledNavLink>

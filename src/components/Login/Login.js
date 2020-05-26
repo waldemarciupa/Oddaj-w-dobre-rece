@@ -160,7 +160,7 @@ const Login = ({ currentUser }) => {
                 </StyledTitle>
                     <Decoration />
                     <StylednNavLinkHome
-                        to='/'
+                        to='/Oddaj-w-dobre-rece/'
                     >
                         Strona Główna
                 </StylednNavLinkHome>

@@ -53,7 +53,7 @@ const Logout = () => {
                 </StyledTitle>
                 <Decoration />
                 <StylednNavLink
-                    to='/'
+                    to='/Oddaj-w-dobre-rece/'
                 >
                     Strona Główna
                 </StylednNavLink>
