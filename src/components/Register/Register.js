@@ -159,7 +159,7 @@ const Register = (props) => {
                             try {
                                 const { user } = await auth.createUserWithEmailAndPassword(email, password);
                                 await createUserProfileDocument(user);
-                                props.history.push('/');
+                                props.history.push('/Oddaj-w-dobre-rece/');
 
                             } catch (error) {
                                 alert(error)

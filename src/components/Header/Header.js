@@ -122,7 +122,7 @@ const Header = ({ currentUser }) => {
                 }
 
                 <StyledHeaderBottom>
-                    <StyledNavLink exact to='/'>Start</StyledNavLink>
+                    <StyledNavLink exact to='/Oddaj-w-dobre-rece/'>Start</StyledNavLink>
                     <StyledScrollLink to='section'>O co chodzi?</StyledScrollLink>
                     <StyledScrollLink to='about'>O nas</StyledScrollLink>
                     <StyledScrollLink to='whowehelp'>Fundacja i organizacje</StyledScrollLink>
