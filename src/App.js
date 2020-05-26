@@ -43,10 +43,10 @@ class App extends React.Component {
         <MainTemplate>
           <Header />
           <Switch>
-            <Route exact path='/' component={Homepage} />
-            <Route exact path='/rejestracja' component={Register} />
-            <Route exact path='/logowanie' component={Login} />
-            <Route exact path='/wylogowano' component={Logout} />
+            <Route exact path='/Oddaj-w-dobre-rece/' component={Homepage} />
+            <Route exact path='/Oddaj-w-dobre-rece/rejestracja' component={Register} />
+            <Route exact path='/Oddaj-w-dobre-rece/logowanie' component={Login} />
+            <Route exact path='/Oddaj-w-dobre-rece/wylogowano' component={Logout} />
             <Route path='*' component={NotFound} />
           </Switch>
         </MainTemplate>
