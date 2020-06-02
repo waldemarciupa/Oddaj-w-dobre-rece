@@ -9,6 +9,7 @@ import MainTemplate from './templates/MainTemplate';
 import Register from './components/Register/Register';
 import Login from './components/Login/Login';
 import Logout from './components/Logout/Logout';
+import GiveThings from './components/GiveThings/GiveThings';
 import { setCurrentUser } from './redux/users/actions';
 
 class App extends React.Component {
@@ -44,9 +45,10 @@ class App extends React.Component {
           <Header />
           <Switch>
             <Route exact path='/Oddaj-w-dobre-rece/' component={Homepage} />
-            <Route exact path='/rejestracja' component={Register} />
-            <Route exact path='/logowanie' component={Login} />
-            <Route exact path='/wylogowano' component={Logout} />
+            <Route path='/rejestracja' component={Register} />
+            <Route path='/logowanie' component={Login} />
+            <Route path='/wylogowano' component={Logout} />
+            <Route path='/oddaj-rzeczy' component={GiveThings} />
             <Route path='*' component={NotFound} />
           </Switch>
         </MainTemplate>
