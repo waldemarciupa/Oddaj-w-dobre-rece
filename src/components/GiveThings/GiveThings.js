@@ -1,21 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-import Welcome from '../Welcome/Welcome';
-import formHeroImage from '../../assets/Form-Hero-Image.jpg';
 import decoration from '../../assets/Decoration.svg';
 import Button from '../Button';
+import WelcomeLeft from '../WelcomeLeft/WelcomeLeft';
+import formHeroImage from '../../assets/Form-Hero-Image.jpg';
 
 const StyledFormContainer = styled.div`
     width: 100%;
     height: 100vh;
     display: flex;
-`;
-
-export const StyledWelcomeLeft = styled.div`
-    width: 100%;
-    background-image: url(${formHeroImage});
-    background-size: cover;
-    background-position: right;
 `;
 
 const StyledWelcomeRight = styled.div`
@@ -48,15 +41,22 @@ const StyledWelcomeTitle = styled.h1`
     letter-spacing: -0.76px;
 `;
 
+const StyledFormLead = styled.div`
+
+`;
+
 const GiveThings = () => {
     return (
         <StyledFormContainer>
-            <StyledWelcomeLeft />
+            <WelcomeLeft inputBackground={formHeroImage} />
             <StyledWelcomeRight>
                 <StyledRightWrapper>
                     <StyledWelcomeTitle>
                         Oddaj rzeczy, których już nie chcesz POTRZEBUJĄCYM
                     </StyledWelcomeTitle>
+                    <StyledFormLead>
+
+                    </StyledFormLead>
                 </StyledRightWrapper>
             </StyledWelcomeRight>
         </StyledFormContainer >

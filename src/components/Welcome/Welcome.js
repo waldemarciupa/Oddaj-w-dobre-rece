@@ -1,23 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
-import homeHeroImage from '../../assets/Home-Hero-Image.jpg';
 import decoration from '../../assets/Decoration.svg';
 import Button from '../Button';
 import { NavLink } from 'react-router-dom';
 import WelcomeLeft from '../WelcomeLeft/WelcomeLeft';
+import homeHeroImage from '../../assets/Home-Hero-Image.jpg';
 
 const StyledWelcomeWrapper = styled.div`
     width: 100%;
     height: 100vh;
     display: flex;
 `;
-
-// const StyledWelcomeLeft = styled.div`
-//     width: 100%;
-//     background-image: url(${homeHeroImage});
-//     background-size: cover;
-//     background-position: right;
-// `;
 
 const StyledWelcomeRight = styled.div`
     width: 100%;
@@ -57,7 +50,7 @@ const StyledButtonsWrapper = styled.div`
 const Welcome = () => {
     return (
         <StyledWelcomeWrapper >
-            <WelcomeLeft />
+            <WelcomeLeft inputBackground={homeHeroImage} />
             <StyledWelcomeRight>
                 <StyledRightWrapper>
                     <StyledWelcomeTitle>
