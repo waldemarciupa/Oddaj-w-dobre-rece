@@ -28,6 +28,7 @@ const StyledRightWrapper = styled.div`
     background-image: url(${decoration});
     background-repeat: no-repeat;
     background-position: center;
+    padding-bottom: 50px;
 
     @media (max-width: 1366px) {
         margin-top: 100px;
@@ -42,7 +43,44 @@ const StyledWelcomeTitle = styled.h1`
 `;
 
 const StyledFormLead = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+    font-size: 36px;
+    font-weight: 300;
+`;
 
+const StyledFormLeadContainer = styled.div`
+    display: flex;
+    position: absolute;
+    bottom: -250px;
+    left: 50%;
+    transform: translate(-50%, 0);
+`;
+
+const StyledFormLeadItem = styled.div`
+    position: relative;
+    width: 120px;
+    font-size: 18px;
+    margin-left: 20px;
+
+    p:first-child {
+        font-size: 22px;
+        font-weight: 400;
+    }
+
+    &::before {
+        content: '';
+        width: 120px;
+        height: 120px;
+        border: 1px solid #3C3C3C;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate(0, -10%) rotate(45deg);
+    }
 `;
 
 const GiveThings = () => {
@@ -55,7 +93,13 @@ const GiveThings = () => {
                         Oddaj rzeczy, których już nie chcesz POTRZEBUJĄCYM
                     </StyledWelcomeTitle>
                     <StyledFormLead>
-
+                        <p>Wystarczą 4 proste kroki:</p>
+                        <StyledFormLeadContainer>
+                            <StyledFormLeadItem><p>1</p><p>Wybierz<br /> rzeczy</p></StyledFormLeadItem>
+                            <StyledFormLeadItem><p>2</p><p>Spakuj je w worki</p></StyledFormLeadItem>
+                            <StyledFormLeadItem><p>3</p><p>Wybierz fundację</p></StyledFormLeadItem>
+                            <StyledFormLeadItem><p>4</p><p>Zamów kuriera</p></StyledFormLeadItem>
+                        </StyledFormLeadContainer>
                     </StyledFormLead>
                 </StyledRightWrapper>
             </StyledWelcomeRight>
