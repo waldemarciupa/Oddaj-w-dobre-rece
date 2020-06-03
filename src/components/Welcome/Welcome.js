@@ -5,6 +5,7 @@ import Button from '../Button';
 import { NavLink } from 'react-router-dom';
 import WelcomeLeft from '../WelcomeLeft/WelcomeLeft';
 import homeHeroImage from '../../assets/Home-Hero-Image.jpg';
+import { connect } from 'react-redux';
 
 const StyledWelcomeWrapper = styled.div`
     width: 100%;
@@ -47,7 +48,7 @@ const StyledButtonsWrapper = styled.div`
     justify-content: space-between;
 `;
 
-const Welcome = () => {
+const Welcome = (currentUser) => {
     return (
         <StyledWelcomeWrapper >
             <WelcomeLeft inputBackground={homeHeroImage} />
@@ -57,16 +58,32 @@ const Welcome = () => {
                         Zacznij pomagać!<br /> Oddaj niechciane rzeczy w zaufane ręce
                     </StyledWelcomeTitle>
                     <StyledButtonsWrapper>
-                        <NavLink to='/logowanie'>
-                            <Button texttransform="uppercase">
-                                Oddaj rzeczy
-                            </Button>
-                        </NavLink>
-                        <NavLink to='/logowanie'>
-                            <Button texttransform="uppercase">
-                                Zorganizuj zbiórkę
-                            </Button>
-                        </NavLink>
+                        {
+                            currentUser.currentUser ?
+                                <>
+                                    <NavLink to='/oddaj-rzeczy/'>
+                                        <Button texttransform="uppercase">
+                                            Oddaj rzeczy
+                                        </Button>
+                                    </NavLink>
+                                    <NavLink to='/oddaj-rzeczy/'>
+                                        <Button texttransform="uppercase">
+                                            Zorganizuj zbiórkę
+                                        </Button>
+                                    </NavLink>
+                                </> : <>
+                                    <NavLink to='/logowanie'>
+                                        <Button texttransform="uppercase">
+                                            Oddaj rzeczy
+                                         </Button>
+                                    </NavLink>
+                                    <NavLink to='/logowanie'>
+                                        <Button texttransform="uppercase">
+                                            Zorganizuj zbiórkę
+                                        </Button>
+                                    </NavLink>
+                                </>
+                        }
                     </StyledButtonsWrapper>
                 </StyledRightWrapper>
             </StyledWelcomeRight>
@@ -74,4 +91,10 @@ const Welcome = () => {
     )
 }
 
-export default Welcome;
+const mapStateToProps = ({ user }) => {
+    return {
+        currentUser: user.currentUser
+    }
+}
+
+export default connect(mapStateToProps)(Welcome);

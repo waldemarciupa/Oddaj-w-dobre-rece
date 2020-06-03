@@ -4,6 +4,7 @@ import Button from '../Button';
 import IconsCards from './IconsCards';
 import Decoration from '../Decoration';
 import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 const StyledSteps = styled.div`
     width: 100%;
@@ -22,7 +23,7 @@ const StyledTitle = styled.div`
     font-weight: 400;
 `;
 
-const Steps = () => {
+const Steps = (currentUser) => {
     return (
         <StyledSteps>
             <StyledTitle>
@@ -30,13 +31,28 @@ const Steps = () => {
             </StyledTitle>
             <Decoration />
             <IconsCards />
-            <NavLink to='/logowanie'>
-                <Button texttransform="uppercase">
-                    Oddaj rzeczy
-            </Button>
-            </NavLink>
+            {
+                currentUser.currentUser ?
+                    <NavLink to='/oddaj-rzeczy'>
+                        <Button texttransform="uppercase">
+                            Oddaj rzeczy
+                        </Button>
+                    </NavLink>
+                    :
+                    <NavLink to='/logowanie'>
+                        <Button texttransform="uppercase">
+                            Oddaj rzeczy
+                        </Button>
+                    </NavLink>
+            }
         </StyledSteps>
     )
 }
 
-export default Steps;
+const mapStateToProps = ({ user }) => {
+    return {
+        currentUser: user.currentUser
+    }
+}
+
+export default connect(mapStateToProps)(Steps);
