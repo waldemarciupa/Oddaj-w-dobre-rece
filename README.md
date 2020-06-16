@@ -1,4 +1,4 @@
-# Dashboard
+# Oddaj w dobre ręce
 This project was created to learn Redux state management, Firebase authorization and Formik form validations and it is still in progress.
 
 ![web_screen](./src/assets/oddaj_screen.png)
