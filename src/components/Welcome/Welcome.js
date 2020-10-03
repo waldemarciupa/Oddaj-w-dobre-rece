@@ -12,30 +12,35 @@ const StyledWelcomeWrapper = styled.div`
     display: flex;
 `;
 
-const StyledWelcomeWrapperBackground = styled.div`
-    display: none;
+// const StyledWelcomeWrapperBackground = styled.div`
+//     display: none;
 
-    @media (max-width: 1200px) {
-        display: block;
-        width: 100%;
-        height: 100%;
-        background-image: url(${props => props.inputBackground || "white"});
-        background-size: cover;
-        background-position: right;
-        position: absolute;
-        z-index: -1;
-    }
-`
+//     @media (max-width: 1300px) {
+//         display: block;
+//         width: 50vw;
+//         height: 50vh;
+//         background-image: url(${props => props.inputBackground || "white"});
+//         background-size: cover;
+//         background-position: center;
+//         z-index: -1;
+//         position: absolute;
+//         top: 50%;
+//         left: 20%;
+//         transform: translate(-50%,-50%);
+//     }
+// `
 
 const StyledWelcomeLeft = styled.div`
     width: 100%;
+    height: 100%;
     background-image: url(${props => props.inputBackground || "white"});
-    background-size: cover;
-    background-position: right;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 
-    @media (max-width: 1200px) {
+    /* @media (max-width: 1300px) {
         background: none;
-    }
+    } */
 `;
 
 const StyledWelcomeRight = styled.div`
@@ -58,6 +63,7 @@ const StyledRightWrapper = styled.div`
 
     @media (max-width: 1366px) {
         margin-top: 100px;
+        width: 100%;
     }
 `;
 
@@ -76,7 +82,7 @@ const StyledButtonsWrapper = styled.div`
 const Welcome = (currentUser) => {
     return (
         <StyledWelcomeWrapper  >
-            <StyledWelcomeWrapperBackground inputBackground={homeHeroImage} />
+            {/* <StyledWelcomeWrapperBackground inputBackground={homeHeroImage} /> */}
             <StyledWelcomeLeft inputBackground={homeHeroImage} />
             <StyledWelcomeRight>
                 <StyledRightWrapper>
