@@ -10,16 +10,32 @@ const StyledWelcomeWrapper = styled.div`
     width: 100%;
     height: 100vh;
     display: flex;
-    background-image: url(${props => props.inputBackground || "white"});
-    background-size: cover;
-    background-position: right;
 `;
+
+const StyledWelcomeWrapperBackground = styled.div`
+    display: none;
+
+    @media (max-width: 1200px) {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-image: url(${props => props.inputBackground || "white"});
+        background-size: cover;
+        background-position: right;
+        position: absolute;
+        z-index: -1;
+    }
+`
 
 const StyledWelcomeLeft = styled.div`
     width: 100%;
-    /* background-image: url(${props => props.inputBackground || "white"});
+    background-image: url(${props => props.inputBackground || "white"});
     background-size: cover;
-    background-position: right; */
+    background-position: right;
+
+    @media (max-width: 1200px) {
+        background: none;
+    }
 `;
 
 const StyledWelcomeRight = styled.div`
@@ -59,7 +75,8 @@ const StyledButtonsWrapper = styled.div`
 
 const Welcome = (currentUser) => {
     return (
-        <StyledWelcomeWrapper >
+        <StyledWelcomeWrapper  >
+            <StyledWelcomeWrapperBackground inputBackground={homeHeroImage} />
             <StyledWelcomeLeft inputBackground={homeHeroImage} />
             <StyledWelcomeRight>
                 <StyledRightWrapper>
