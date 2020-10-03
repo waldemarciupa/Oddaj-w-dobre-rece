@@ -10,13 +10,16 @@ const StyledWelcomeWrapper = styled.div`
     width: 100%;
     height: 100vh;
     display: flex;
+    background-image: url(${props => props.inputBackground || "white"});
+    background-size: cover;
+    background-position: right;
 `;
 
 const StyledWelcomeLeft = styled.div`
     width: 100%;
-    background-image: url(${props => props.inputBackground || "white"});
+    /* background-image: url(${props => props.inputBackground || "white"});
     background-size: cover;
-    background-position: right;
+    background-position: right; */
 `;
 
 const StyledWelcomeRight = styled.div`
