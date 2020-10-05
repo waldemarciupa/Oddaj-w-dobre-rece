@@ -13,6 +13,13 @@ const Button = styled.button`
     letter-spacing: 0;
     color: #3C3C3C;
     text-transform: ${({ texttransform }) => texttransform ? texttransform : "none"};
+
+     @media (max-width: 1200px) {
+        width: 240px;
+        height: 80px;
+        font-size: 28px;
+        line-height: 30px;
+    }
 `;
 
 export default Button;
