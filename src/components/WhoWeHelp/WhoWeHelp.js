@@ -14,6 +14,10 @@ const StyledWhoWeHelpContainer = styled.div`
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+
+    @media (max-width: 1366px) {
+        margin: 30px 10px 0 10px;
+    }
 `;
 
 const StyledTitle = styled.div`
@@ -39,7 +43,7 @@ const StyledButton = styled(Button)`
 `;
 
 const StyledContent = styled.div`
-    width: 1344px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
