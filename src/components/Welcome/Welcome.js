@@ -61,9 +61,10 @@ const StyledRightWrapper = styled.div`
     background-repeat: no-repeat;
     background-position: center;
 
-    @media (max-width: 1366px) {
+    @media (max-width: 1200px) {
         margin-top: 100px;
         width: 100%;
+
     }
 `;
 
@@ -72,6 +73,11 @@ const StyledWelcomeTitle = styled.h1`
     font-weight: 400;
     line-height: 55px;
     letter-spacing: -0.76px;
+
+    @media (max-width: 1200px) {
+        font-size: 28px;
+        line-height: 45px;
+    }
 `;
 
 const StyledButtonsWrapper = styled.div`
