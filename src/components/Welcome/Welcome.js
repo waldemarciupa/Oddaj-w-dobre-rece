@@ -12,23 +12,23 @@ const StyledWelcomeWrapper = styled.div`
     display: flex;
 `;
 
-// const StyledWelcomeWrapperBackground = styled.div`
-//     display: none;
+const StyledWelcomeWrapperBackground = styled.div`
+    display: none;
 
-//     @media (max-width: 1300px) {
-//         display: block;
-//         width: 50vw;
-//         height: 50vh;
-//         background-image: url(${props => props.inputBackground || "white"});
-//         background-size: cover;
-//         background-position: center;
-//         z-index: -1;
-//         position: absolute;
-//         top: 50%;
-//         left: 20%;
-//         transform: translate(-50%,-50%);
-//     }
-// `
+    @media (max-width: 992px) {
+        display: block;
+        width: 100%;
+        height: 70vh;
+        background-image: url(${props => props.inputBackground || "white"});
+        background-size: cover;
+        background-position: center;
+        z-index: -1;
+        position: absolute;
+        top: 50%;
+        left: 35%;
+        transform: translate(-50%,-50%);
+    }
+`
 
 const StyledWelcomeLeft = styled.div`
     width: 100%;
@@ -38,9 +38,9 @@ const StyledWelcomeLeft = styled.div`
     background-repeat: no-repeat;
     background-position: center;
 
-    /* @media (max-width: 1300px) {
+    @media (max-width: 992px) {
         background: none;
-    } */
+    }
 `;
 
 const StyledWelcomeRight = styled.div`
@@ -88,7 +88,7 @@ const StyledButtonsWrapper = styled.div`
 const Welcome = (currentUser) => {
     return (
         <StyledWelcomeWrapper  >
-            {/* <StyledWelcomeWrapperBackground inputBackground={homeHeroImage} /> */}
+            <StyledWelcomeWrapperBackground inputBackground={homeHeroImage} />
             <StyledWelcomeLeft inputBackground={homeHeroImage} />
             <StyledWelcomeRight>
                 <StyledRightWrapper>
