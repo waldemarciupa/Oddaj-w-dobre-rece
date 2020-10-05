@@ -117,14 +117,17 @@ const WhoWeHelp = ({ current, getAllData, clear, getThingsFromState }) => {
 
     const handleClickFound = () => {
         getThingsFromState("foundation");
+        setCurrentPage(1);
     }
 
     const handleClickORG = () => {
         getThingsFromState("organizations");
+        setCurrentPage(1);
     }
 
     const handleClickLocals = () => {
         getThingsFromState("locals");
+        setCurrentPage(1);
     }
 
     // Get current foundations
