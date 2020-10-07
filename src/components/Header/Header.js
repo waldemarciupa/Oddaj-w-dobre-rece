@@ -95,6 +95,13 @@ const Hamburger = styled.button`
     }
 `;
 
+const HamburgerBox = styled.span`
+    width: 40px;
+    height: 24px;
+    display: inline-block;
+    position: relative;
+`;
+
 const Header = ({ currentUser }) => {
 
     const logout = () => {
