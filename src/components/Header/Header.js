@@ -52,7 +52,8 @@ const StyledHeaderBottom = styled.div`
         position: absolute;
         top: -20px;
         right: 0;
-        background: black;
+        background: ${({ theme }) => theme.white};
+        color: ${({ theme }) => theme.grey};
         width: 100vw;
         height: 100vh;
         transition: all 0.3s linear;
@@ -62,7 +63,7 @@ const StyledHeaderBottom = styled.div`
 
 const StyledNavLink = styled(NavLink)`
     text-decoration: none;
-    color: #3C3C3C;
+    color: ${({ theme }) => theme.grey};
     padding: 9px 20px;
     font-size:  18px;
     
@@ -82,7 +83,7 @@ const StyledScrollLink = styled(Link).attrs({
 
 })`
     text-decoration: none;
-    color: #3C3C3C;
+    color: ${({ theme }) => theme.grey};
     padding: 9px 20px;
     font-size:  18px;
     cursor: pointer;
@@ -110,6 +111,7 @@ const Hamburger = styled.button`
 
     @media (max-width: 768px) {
         display: inline-block;
+        width: 60px;
     }
 `;
 
@@ -127,29 +129,29 @@ const HamburgerInner = styled.span`
     left: 0;
     top: 50%;
     transform: translateY(-50%);
-    transition: background-color .1s .2s ease-in-out;
-    background-color: ${({ open }) => open ? ' transparent' : 'black'};
+    transition: all .1s ease-in-out;
+    background-color: ${({ open }) => open ? 'transparent' : ({ theme }) => theme.grey};
 
     &:before,
     &:after {
-        width: 100%;
-        height: 3px;
-        background-color: black;
-        position: absolute;
-        content: '';
-        left: 0;
-        transition: transform .2s .2s ease-in-out;
-    }
+    width: 100%;
+    height: 3px;
+    background-color: ${({ theme }) => theme.grey};
+    position: absolute;
+    content: '';
+    left: 0;
+    transition: transform .2s .2s ease -in -out;
+}
 
     &:before {
-        top: -10px;
-        transform: ${({ open }) => open ? 'translateY(10px) rotate(45deg)' : 'translateY(0) rotate(0)'};
-    }
+    top: -10px;
+    transform: ${({ open }) => open ? 'translateY(10px) rotate(45deg)' : 'translateY(0) rotate(0)'};
+}
 
     &:after {
-        top: 10px;
-        transform: ${({ open }) => open ? 'translateY(-10px) rotate(-45deg)' : 'translateY(0) rotate(0)'};
-    }
+    top: 10px;
+    transform: ${({ open }) => open ? 'translateY(-10px) rotate(-45deg)' : 'translateY(0) rotate(0)'};
+}
 `;
 
 const Header = ({ currentUser }) => {
