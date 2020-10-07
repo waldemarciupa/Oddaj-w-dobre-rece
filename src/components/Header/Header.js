@@ -80,6 +80,21 @@ const StyledScrollLink = styled(Link).attrs({
         )
     }}
 `
+
+const Hamburger = styled.button`
+    z-index: 10;
+    padding: 10px;
+    display: none;
+    background-color: transparent;
+    cursor: pointer;
+    border: 0;
+    margin: 0;
+
+    @media (max-width: 768px) {
+        display: inline-block;
+    }
+`;
+
 const Header = ({ currentUser }) => {
 
     const logout = () => {
