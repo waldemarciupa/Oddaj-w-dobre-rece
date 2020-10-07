@@ -44,13 +44,14 @@ const StyledHeaderBottom = styled.div`
     @media (max-width: 768px) {
         z-index: 1;
         margin: 0;
+        padding: 0;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         position: absolute;
-        top: 0;
-        left: 0;
+        top: -20px;
+        right: 0;
         background: black;
         width: 100vw;
         height: 100vh;
@@ -127,14 +128,13 @@ const HamburgerInner = styled.span`
     top: 50%;
     transform: translateY(-50%);
     transition: background-color .1s .2s ease-in-out;
-    background-color: ${({ open }) => open ? ' transparent' : ' white'};
-
+    background-color: ${({ open }) => open ? ' transparent' : 'black'};
 
     &:before,
     &:after {
         width: 100%;
         height: 3px;
-        background-color: white;
+        background-color: black;
         position: absolute;
         content: '';
         left: 0;
