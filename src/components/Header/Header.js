@@ -121,6 +121,11 @@ const Header = ({ currentUser }) => {
                         </StyledHeaderTop>
                 }
 
+                <Hamburger open={open} onClick={handleClick}>
+                    <HamburgerBox open={open}>
+                        <HamburgerInner open={open} />
+                    </HamburgerBox>
+                </Hamburger>
                 <StyledHeaderBottom>
                     <StyledNavLink exact to='/Oddaj-w-dobre-rece/'>Start</StyledNavLink>
                     <StyledScrollLink to='section'>O co chodzi?</StyledScrollLink>
