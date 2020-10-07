@@ -50,7 +50,7 @@ const StyledHeaderBottom = styled.div`
         justify-content: center;
         align-items: center;
         position: absolute;
-        top: -20px;
+        top: 0;
         right: 0;
         background: ${({ theme }) => theme.white};
         color: ${({ theme }) => theme.grey};
@@ -108,10 +108,13 @@ const Hamburger = styled.button`
     cursor: pointer;
     border: 0;
     margin: 0;
+    width: 60px;
+    position: absolute;
+    top: 30px;
+    right: 30px;
 
     @media (max-width: 768px) {
         display: inline-block;
-        width: 60px;
     }
 `;
 
