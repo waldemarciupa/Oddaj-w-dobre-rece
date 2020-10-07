@@ -102,6 +102,39 @@ const HamburgerBox = styled.span`
     position: relative;
 `;
 
+const HamburgerInner = styled.span`
+    width: 100%;
+    height: 3px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: background-color .1s .2s ease-in-out;
+    background-color: ${({ open }) => open ? ' transparent' : ' white'};
+
+
+    &:before,
+    &:after {
+        width: 100%;
+        height: 3px;
+        background-color: white;
+        position: absolute;
+        content: '';
+        left: 0;
+        transition: transform .2s .2s ease-in-out;
+    }
+
+    &:before {
+        top: -10px;
+        transform: ${({ open }) => open ? 'translateY(10px) rotate(45deg)' : 'translateY(0) rotate(0)'};
+    }
+
+    &:after {
+        top: 10px;
+        transform: ${({ open }) => open ? 'translateY(-10px) rotate(-45deg)' : 'translateY(0) rotate(0)'};
+    }
+`;
+
 const Header = ({ currentUser }) => {
 
     const logout = () => {
