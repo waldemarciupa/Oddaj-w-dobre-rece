@@ -86,6 +86,12 @@ const Header = ({ currentUser }) => {
         auth.signOut();
     }
 
+    const [open, setOpen] = useState(false);
+
+    const handleClick = () => {
+        setOpen(!open);
+    }
+
     return (
         <>
             <StyledHeader>
