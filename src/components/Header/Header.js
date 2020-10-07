@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import { auth } from '../../firebase/firebase.utils';
 import { NavLink } from 'react-router-dom';
@@ -40,6 +40,23 @@ const StyledUser = styled.p`
 const StyledHeaderBottom = styled.div`
     display: flex;
     justify-content: flex-end;
+
+    @media (max-width: 768px) {
+        z-index: 1;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: black;
+        width: 100vw;
+        height: 100vh;
+        transition: all 0.3s linear;
+        transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(-100%)'};
+    }
 `;
 
 const StyledNavLink = styled(NavLink)`
@@ -187,7 +204,7 @@ const Header = ({ currentUser }) => {
                         <HamburgerInner open={open} />
                     </HamburgerBox>
                 </Hamburger>
-                <StyledHeaderBottom>
+                <StyledHeaderBottom open={open}>
                     <StyledNavLink exact to='/Oddaj-w-dobre-rece/'>Start</StyledNavLink>
                     <StyledScrollLink to='section'>O co chodzi?</StyledScrollLink>
                     <StyledScrollLink to='about'>O nas</StyledScrollLink>
