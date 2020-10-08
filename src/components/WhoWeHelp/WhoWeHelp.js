@@ -33,6 +33,11 @@ const StyledNavigation = styled.div`
     display: flex;
     justify-content: space-around;
     margin-top: 50px;
+
+    @media (max-width: 992px) {
+        flex-direction: column;
+        align-items: center;
+    }
 `;
 
 const StyledButton = styled(Button)`
@@ -40,6 +45,10 @@ const StyledButton = styled(Button)`
     height: 79px;
     font-size: 24px;
     line-height: 24px;
+
+    @media (max-width: 992px) {
+        margin-top: 10px;
+    }
 `;
 
 const StyledContent = styled.div`
