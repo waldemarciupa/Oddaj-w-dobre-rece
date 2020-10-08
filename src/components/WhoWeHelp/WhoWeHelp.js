@@ -84,6 +84,11 @@ const StyledListElement = styled.li`
     align-items: center;
     padding: 30px 0;
     border-bottom: 1px solid #707070;
+    
+    @media (max-width: 992px) {
+        text-align: center;
+        display: inline-block;
+    }
 `;
 
 const StyledListElementLeft = styled.div`
@@ -103,8 +108,7 @@ const StyledMission = styled.p`
     line-height: 20px;
     font-family: ${({ theme }) => theme.Merriweather};
     font-weight: 300;
-    font-style: italic;
-    
+    font-style: italic; 
 `;
 
 const StyledThings = styled.p`
