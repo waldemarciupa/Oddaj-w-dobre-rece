@@ -62,7 +62,7 @@ const StyledContent = styled.div`
 const StyledContentTitle = styled.h3`
     font-size: 22px;
     line-height: 30px;
-    width: 640px;
+    max-width: 640px;
     text-align: center;
     margin: 70px auto 50px;
 `;
@@ -100,7 +100,7 @@ const StyledName = styled.p`
     line-height: 29px;
     font-family: ${({ theme }) => theme.Merriweather};
     font-weight: 300;
-    margin-bottom: 5px;
+    margin-bottom: 5px;    
 `;
 
 const StyledMission = styled.p`
