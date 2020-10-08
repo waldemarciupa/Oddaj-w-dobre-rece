@@ -104,6 +104,7 @@ const StyledMission = styled.p`
     font-family: ${({ theme }) => theme.Merriweather};
     font-weight: 300;
     font-style: italic;
+    
 `;
 
 const StyledThings = styled.p`
@@ -111,6 +112,10 @@ const StyledThings = styled.p`
     line-height: 20px;
     font-family: ${({ theme }) => theme.Merriweather};
     font-weight: 300;
+
+    @media (max-width: 992px) {
+        display: none;
+    }
 `;
 
 const WhoWeHelp = ({ current, getAllData, clear, getThingsFromState }) => {
