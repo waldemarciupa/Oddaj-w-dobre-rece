@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 
 const StyledSteps = styled.div`
     width: 100%;
-    height: 625px;
+    min-height: 625px;
     margin-top: 55px;
     display: flex;
     flex-direction: column;

@@ -7,10 +7,15 @@ import icon4 from '../../assets/Icon-4.svg';
 
 const StyledIconsWrapper = styled.div`
     width: 100%;
-    height: 325px;
+    min-height: 325px;
     display: flex;
     justify-content: space-around;
     align-items: center;
+
+    @media (max-width: 668px) {
+        flex-direction: column;
+        margin: 20px 0 20px 0;
+    }
 `;
 
 const StyledIconCard = styled.div`
@@ -21,6 +26,10 @@ const StyledIconCard = styled.div`
     justify-content: space-between;
     align-items: center;
     text-align: center;
+
+    @media (max-width: 668px) {
+        margin: 10px 0 10px 0;
+    }
 `;
 
 const StyledIcon = styled.img`
