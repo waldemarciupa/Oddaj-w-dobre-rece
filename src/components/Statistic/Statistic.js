@@ -5,11 +5,15 @@ import ThreeColumnImage from '../../assets/3ColumnsBackground.png';
 
 const StyledStatistic = styled.div`
     width: 100%;
-    height: 384px;
+    min-height: 384px;
     background-image: url(${ThreeColumnImage});
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+
+    @media (max-width: 668px) {
+        flex-direction: column;
+    }
 `;
 
 const StyledColumn = styled.div`
