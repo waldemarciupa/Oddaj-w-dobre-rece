@@ -6,9 +6,13 @@ import Decoration from '../Decoration';
 
 const StyledAbout = styled.div`
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     margin-top: 80px;
     display: flex;
+
+    @media (max-width: 992px) {
+        flex-direction: column;
+    }
 `;
 
 const StyledAboutContent = styled.div`
@@ -19,6 +23,10 @@ const StyledAboutContent = styled.div`
     align-items: center;
     justify-content: center;
     text-align: center;
+
+    @media (max-width: 992px) {
+        width: 100%;
+    }
 `;
 
 const StyledAboutContentWrapper = styled.div`
@@ -56,6 +64,11 @@ const StyledAboutImage = styled.div`
     background-image: url(${people});
     background-size: cover;
     background-position: center;
+
+    @media (max-width: 992px) {
+        width: 100%;
+        height: 500px;
+    }
 `;
 
 const About = () => {
