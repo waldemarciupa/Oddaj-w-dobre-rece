@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/Oddaj-w-dobre-rece/static/js/main.9a26eb9b.chunk.js",
-    "main.js.map": "/Oddaj-w-dobre-rece/static/js/main.9a26eb9b.chunk.js.map",
+    "main.js": "/Oddaj-w-dobre-rece/static/js/main.9168c1c3.chunk.js",
+    "main.js.map": "/Oddaj-w-dobre-rece/static/js/main.9168c1c3.chunk.js.map",
     "runtime-main.js": "/Oddaj-w-dobre-rece/static/js/runtime-main.56c2f236.js",
     "runtime-main.js.map": "/Oddaj-w-dobre-rece/static/js/runtime-main.56c2f236.js.map",
     "static/js/2.2262df51.chunk.js": "/Oddaj-w-dobre-rece/static/js/2.2262df51.chunk.js",
     "static/js/2.2262df51.chunk.js.map": "/Oddaj-w-dobre-rece/static/js/2.2262df51.chunk.js.map",
     "index.html": "/Oddaj-w-dobre-rece/index.html",
-    "precache-manifest.9c7e10eff81ed4c5d2629095e08623af.js": "/Oddaj-w-dobre-rece/precache-manifest.9c7e10eff81ed4c5d2629095e08623af.js",
+    "precache-manifest.42c97ef01eb27f2578e27bfb47fe8e04.js": "/Oddaj-w-dobre-rece/precache-manifest.42c97ef01eb27f2578e27bfb47fe8e04.js",
     "service-worker.js": "/Oddaj-w-dobre-rece/service-worker.js",
     "static/js/2.2262df51.chunk.js.LICENSE.txt": "/Oddaj-w-dobre-rece/static/js/2.2262df51.chunk.js.LICENSE.txt",
     "static/media/3ColumnsBackground.png": "/Oddaj-w-dobre-rece/static/media/3ColumnsBackground.99f2e620.png",
@@ -27,6 +27,6 @@
   "entrypoints": [
     "static/js/runtime-main.56c2f236.js",
     "static/js/2.2262df51.chunk.js",
-    "static/js/main.9a26eb9b.chunk.js"
+    "static/js/main.9168c1c3.chunk.js"
   ]
 }
