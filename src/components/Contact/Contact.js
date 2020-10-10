@@ -123,6 +123,13 @@ const StyledButton = styled(Button)`
     position: absolute;
     bottom: 0;
     right: 0;
+
+    @media (max-width: 668px) {
+        width: 130px;
+        height: 40px;
+        font-size: 16px;
+        line-height: 26px;
+    }
 `;
 
 const StyledErrorMessage = styled(ErrorMessage)`
