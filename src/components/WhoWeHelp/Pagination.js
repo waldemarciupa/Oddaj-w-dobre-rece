@@ -2,13 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledNav = styled.nav`
-    width: 150px;
+    width: 100%;
     height: 50px;
     margin: 65px auto 0;
 `;
 
 const StyledNavList = styled.ul`
     display: flex;
+    justify-content: center;
 `;
 
 const StyledNavListElement = styled.li`
