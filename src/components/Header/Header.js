@@ -76,6 +76,16 @@ const StyledNavLink = styled(NavLink)`
             `
         )
     }}
+
+    ${({ tertiary }) => {
+        return (
+            tertiary && css`
+                @media (max-width: 768px) {
+                    font-size: 30px;
+                }
+            `
+        )
+    }}
 `;
 
 const StyledScrollLink = styled(Link).attrs({
@@ -98,6 +108,10 @@ const StyledScrollLink = styled(Link).attrs({
             `
         )
     }}
+
+    @media (max-width: 768px) {
+        font-size: 30px;
+    }
 `
 
 const Hamburger = styled.button`
@@ -210,7 +224,7 @@ const Header = ({ currentUser }) => {
                     </HamburgerBox>
                 </Hamburger>
                 <StyledHeaderBottom open={open}>
-                    <StyledNavLink exact to='/Oddaj-w-dobre-rece/'>Start</StyledNavLink>
+                    <StyledNavLink tertiary exact to='/Oddaj-w-dobre-rece/'>Start</StyledNavLink>
                     <StyledScrollLink to='section'>O co chodzi?</StyledScrollLink>
                     <StyledScrollLink to='about'>O nas</StyledScrollLink>
                     <StyledScrollLink to='whowehelp'>Fundacja i organizacje</StyledScrollLink>
