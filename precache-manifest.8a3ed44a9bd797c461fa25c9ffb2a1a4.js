@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "639858e9cc37431922b57535c8495857",
+    "revision": "a521434aa87e3d2fdbe03624a71292ac",
     "url": "/Oddaj-w-dobre-rece/index.html"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Oddaj-w-dobre-rece/static/js/2.2262df51.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "c2518e5f13816a8dc1ec",
-    "url": "/Oddaj-w-dobre-rece/static/js/main.9168c1c3.chunk.js"
+    "revision": "983747851d75ba4d6be4",
+    "url": "/Oddaj-w-dobre-rece/static/js/main.e8fe6fe3.chunk.js"
   },
   {
     "revision": "00285ec247e7bbf9d975",
