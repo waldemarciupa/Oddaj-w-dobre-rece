@@ -21,6 +21,10 @@ const StyledTitle = styled.div`
     line-height: 55px;
     letter-spacing: -0.76px;
     font-weight: 400;
+
+    @media (max-width: 400px) {
+        text-align: center;
+    }
 `;
 
 const Steps = (currentUser) => {

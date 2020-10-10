@@ -48,6 +48,14 @@ const StyledTitle = styled.div`
     line-height: 55px;
     letter-spacing: -0.76px;
     font-weight: 400;
+
+    @media (max-width: 400px) {
+        text-align: center;
+        font-size: 32px;
+        line-height: 49px;
+        letter-spacing: -0.76px;
+        font-weight: 400;
+    }
 `;
 
 const StyledForm = styled(Form)`

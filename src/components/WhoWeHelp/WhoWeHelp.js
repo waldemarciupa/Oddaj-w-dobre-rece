@@ -26,6 +26,10 @@ const StyledTitle = styled.div`
     letter-spacing: -0.76px;
     font-weight: 400;
     margin-bottom: 50px;
+
+    @media (max-width: 400px) {
+        text-align: center;
+    }
 `;
 
 const StyledNavigation = styled.div`
