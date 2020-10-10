@@ -16,7 +16,7 @@ const StyledWhoWeHelpContainer = styled.div`
     align-items: center;
 
     @media (max-width: 1366px) {
-        margin: 30px 10px 0 10px;
+        margin: 30px 20px 0 20px;
     }
 `;
 
@@ -31,12 +31,17 @@ const StyledTitle = styled.div`
 const StyledNavigation = styled.div`
     width: 800px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
     margin-top: 50px;
 
-    @media (max-width: 992px) {
+    @media (max-width: 800px) {
+        width: 650px
+    }
+
+    @media (max-width: 669px) {
         flex-direction: column;
-        align-items: center;
+        justify-content: center;
     }
 `;
 
@@ -48,6 +53,13 @@ const StyledButton = styled(Button)`
 
     @media (max-width: 992px) {
         margin-top: 10px;
+    }
+
+    @media (max-width: 820px) {
+        width: 198px;
+        height: 69px;
+        font-size: 20px;
+        line-height: 22px;
     }
 `;
 
