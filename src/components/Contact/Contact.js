@@ -51,12 +51,17 @@ const StyledTitle = styled.div`
 `;
 
 const StyledForm = styled(Form)`
+    width: 100%;
     position: relative;
 `;
 
 const StyledFormTopInputs = styled.div`
     display: flex;
     justify-content: space-between;
+
+    @media (max-width: 576px) {
+        flex-direction: column;
+    }
 `;
 
 const StyledFormName = styled.div`
@@ -67,6 +72,11 @@ const StyledFormName = styled.div`
 const StyledFormEmail = styled.div`
     margin-left: 7px;
     position: relative;
+
+    @media (max-width: 576px) {
+        margin-left: 0;
+        width: 100%;
+    }
 `;
 
 const StyledFormMessage = styled.div`
