@@ -38,6 +38,11 @@ const StyledAboutContentWrapper = styled.div`
     justify-content: space-evenly;
     align-items: center;
     position: relative;
+    margin: 0 20px;
+
+    @media (max-width: 992px) {
+        min-height: 600px;
+    }
 `;
 
 const StyledAboutTitle = styled.h3`
@@ -50,13 +55,22 @@ const StyledAboutText = styled.p`
     font-size: 30px;
     line-height: 54px;
     letter-spacing: -0.6px;
+
+    @media (max-width: 992px) {
+        font-size: 24px;
+        line-height: 44px;
+        letter-spacing: -0.6px;
+    }
 `;
 
 const StyledSignature = styled.img`
-position: absolute;
-bottom: 0;
-right: 0;
+    position: absolute;
+    bottom: 0;
+    right: 0;
 
+    @media (max-width: 992px) {
+        margin: 20px 30px 20px 0;
+    }
 `;
 
 const StyledAboutImage = styled.div`
