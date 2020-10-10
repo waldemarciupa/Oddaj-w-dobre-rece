@@ -183,6 +183,10 @@ const Header = ({ currentUser }) => {
         setOpen(!open);
     }
 
+    const handleClose = () => {
+        setOpen(false);
+    }
+
     return (
         <>
             <StyledHeader>
@@ -224,11 +228,11 @@ const Header = ({ currentUser }) => {
                     </HamburgerBox>
                 </Hamburger>
                 <StyledHeaderBottom open={open}>
-                    <StyledNavLink tertiary exact to='/Oddaj-w-dobre-rece/'>Start</StyledNavLink>
-                    <StyledScrollLink to='section'>O co chodzi?</StyledScrollLink>
-                    <StyledScrollLink to='about'>O nas</StyledScrollLink>
-                    <StyledScrollLink to='whowehelp'>Fundacja i organizacje</StyledScrollLink>
-                    <StyledScrollLink to='contact'>Kontakt</StyledScrollLink>
+                    <StyledNavLink onClick={handleClose} tertiary exact to='/Oddaj-w-dobre-rece/'>Start</StyledNavLink>
+                    <StyledScrollLink onClick={handleClose} to='section'>O co chodzi?</StyledScrollLink>
+                    <StyledScrollLink onClick={handleClose} to='about'>O nas</StyledScrollLink>
+                    <StyledScrollLink onClick={handleClose} to='whowehelp'>Fundacja i organizacje</StyledScrollLink>
+                    <StyledScrollLink onClick={handleClose} to='contact'>Kontakt</StyledScrollLink>
                 </StyledHeaderBottom>
             </StyledHeader>
 
