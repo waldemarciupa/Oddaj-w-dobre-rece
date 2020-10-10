@@ -13,10 +13,14 @@ const StyledContact = styled.div`
     background-size: cover;
     background-position: center;
     position: relative;
+
+    @media (max-width: 992px) {
+        background: transparent;
+    }
 `;
 
 const StyledFormWrapper = styled.div`
-    width: 50vw;
+    min-width: 50vw;
     height: 100%;
     position: absolute;
     top: 0;
@@ -24,6 +28,10 @@ const StyledFormWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    
+    @media (max-width: 992px) {
+        width: 100%;
+    }
 `;
 
 const StyledFormContent = styled.div`
