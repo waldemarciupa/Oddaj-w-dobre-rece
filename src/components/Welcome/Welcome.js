@@ -50,13 +50,9 @@ const StyledWelcomeRight = styled.div`
     justify-content: center;
     align-items: center;
 
-
-    /* @media (max-width: 992px) {
-        background-image: url(${props => props.inputBackground || "white"});
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-    } */
+    @media (max-width: 776px) {
+        align-items: flex-start;
+    }
 `;
 
 const StyledRightWrapper = styled.div`
