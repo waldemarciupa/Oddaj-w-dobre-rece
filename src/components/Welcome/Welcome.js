@@ -27,7 +27,6 @@ const StyledWelcomeWrapperBackground = styled.div`
         position: absolute;
         bottom: 0;
         left: 0;
-        /* transform: translate(-50%,-50%); */
     }
 `
 
@@ -70,6 +69,15 @@ const StyledRightWrapper = styled.div`
         margin-top: 100px;
         width: 100%;
     }
+
+    @media (max-width: 776px) {
+        height: 40%;
+        margin: 100px 20px 0;
+    }
+
+    @media (max-width: 560px) {
+        height: 50%;
+    }
 `;
 
 const StyledWelcomeTitle = styled.h1`
@@ -87,6 +95,10 @@ const StyledWelcomeTitle = styled.h1`
 const StyledButtonsWrapper = styled.div`
     display: flex;
     justify-content: space-between;
+
+    @media (max-width: 560px) {
+        flex-direction: column;
+    }
 `;
 
 const Welcome = (currentUser) => {
