@@ -76,7 +76,11 @@ const StyledRightWrapper = styled.div`
     }
 
     @media (max-width: 560px) {
-        height: 50%;
+        background: none;
+    }
+
+    @media (max-width: 540px) {
+        height: 55%;
     }
 `;
 
@@ -96,8 +100,10 @@ const StyledButtonsWrapper = styled.div`
     display: flex;
     justify-content: space-between;
 
-    @media (max-width: 560px) {
+    @media (max-width: 540px) {
         flex-direction: column;
+        justify-content: space-evenly;
+        height: 100%;
     }
 `;
 
