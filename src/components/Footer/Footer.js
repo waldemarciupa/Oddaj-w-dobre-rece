@@ -23,6 +23,10 @@ const StyledLinksWrapper = styled.div`
     position: absolute;
     right: 0;
     top: 0;
+
+    @media (max-width: 540px) {
+        display: none;
+    }
 `;
 
 const StyledLink = styled.a`
